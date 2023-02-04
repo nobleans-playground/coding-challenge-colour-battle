@@ -13,16 +13,6 @@ class World:
         'h' : np.array([0, 0], dtype=np.int8)
     }
 
-    COLOURS = {
-        0: (255, 255, 255),
-        1: (255, 0, 0),     # Red
-        2: (0, 255, 0),     # Green
-        3: (0, 0, 255),     # Blue
-        4: (255, 255, 0),   # Yellow
-        5: (0, 255, 255),   # Cyan
-        6: (255, 0, 255),   # Magenta
-    }
-
     def __init__(self):
         self.next_bot_id = 1 # Start at 1. 0 will show empty square
         self.bots = []
@@ -85,18 +75,10 @@ class World:
             self.grid[bot.position[1]][bot.position[0]] = new_colour
             occupancy[bot.id] = True
 
-    def draw(self, canvas_surface, bot_surface):
-        BLUE=(0,0,255)
-
-        w = math.floor(min(canvas_surface.get_size()) / self.grid_length)
-        for ix, iy  in np.ndindex(self.grid.shape):
-            colour = self.COLOURS[self.grid[iy, ix]] + (100,)   # half alpha channel
-            pygame.draw.rect(canvas_surface, colour, (ix * w , iy * w, w, w))
-
-        for bot in self.bots:
-            pygame.draw.circle(bot_surface, self.COLOURS[bot.id], 
-                ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/3))
-            pygame.draw.circle(bot_surface, (0, 0, 0), 
-                ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/10))
+    def get_score(self):
+        return {
+            bot.id: np.count_nonzero(self.grid == bot.id)
+            for bot in self.bots
+        }
 
 

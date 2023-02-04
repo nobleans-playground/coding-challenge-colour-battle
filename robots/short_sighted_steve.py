@@ -1,12 +1,12 @@
 import random
 
-class ChickenJoe:
+class ShortSightedSteve:
     @staticmethod
-    def get_name(self):
-        return "Chicken Joe"
+    def get_name():
+        return "Short Sighted Steve"
 
     @staticmethod
-    def get_contributor(self):
+    def get_contributor():
         return "Hein"
 
     @staticmethod
@@ -23,16 +23,16 @@ class ChickenJoe:
         x = self["position"][0]
         y = self["position"][1]
         l = grid.shape[0] # always square
-        if y < l - 1 and ChickenJoe.can_overwrite(self['id'], grid[y+1][x]):
+        if y < l - 1 and ShortSightedSteve.can_overwrite(self['id'], grid[y+1][x]):
             return 'n'
         
-        if y > 1 and ChickenJoe.can_overwrite(self['id'], grid[y-1][x]):
+        if y > 1 and ShortSightedSteve.can_overwrite(self['id'], grid[y-1][x]):
             return 's'
         
-        if x < l - 1 and ChickenJoe.can_overwrite(self['id'], grid[y][x + 1]):
+        if x < l - 1 and ShortSightedSteve.can_overwrite(self['id'], grid[y][x + 1]):
             return 'e'
         
-        if x > 1 and ChickenJoe.can_overwrite(self['id'], grid[y][x - 1]):
+        if x > 1 and ShortSightedSteve.can_overwrite(self['id'], grid[y][x - 1]):
             return 'w'
 
         # Couldn't find somewhere to go. 

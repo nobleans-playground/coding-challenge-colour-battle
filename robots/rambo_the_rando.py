@@ -4,11 +4,11 @@ import numpy as np
 
 class RamboTheRando:
     @staticmethod
-    def get_name(self):
+    def get_name():
         return "Rambo The Rando"
 
     @staticmethod
-    def get_contributor(self):
+    def get_contributor():
         return "Hein"
 
     @staticmethod
