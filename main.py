@@ -16,11 +16,10 @@ WINDOW_HEIGHT = 600
 world = World()
 
 from robots.rambo_the_rando import RamboTheRando
+from robots.chicken_joe import ChickenJoe
 world.add_bot(RamboTheRando())
-world.add_bot(RamboTheRando())
-world.add_bot(RamboTheRando())
-world.add_bot(RamboTheRando())
-world.create()
+world.add_bot(ChickenJoe())
+world.setup()
  
 pygame.init()
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))

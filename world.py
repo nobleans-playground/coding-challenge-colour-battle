@@ -32,15 +32,20 @@ class World:
         self.next_bot_id += 1
         self.bots += [bot]
 
-    def create(self):
+    def setup(self):
         cells_per_bot = 8 * 8
         self.grid_length = math.ceil(math.sqrt(cells_per_bot * len(self.bots)))
 
         # The grid will contain a colour, designated by some bot's id
         self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.int8)
 
-        # Random start positions. Bots might start on top of another
+        # Setup bots
+        self.bot_storage = { }
         for bot in self.bots:
+            # Reset storage
+            self.bot_storage[bot.id] = { }
+
+            # Random start positions. Bots might start on top of another
             bot.position = np.array([
                 random.randint(0, self.grid_length-1), 
                 random.randint(0, self.grid_length-1)], dtype=np.int8)
@@ -56,7 +61,12 @@ class World:
 
         # Determine next moves
         for bot in self.bots:
-            bot.next_move = bot.determine_next_move(bot.id, self.grid, enemies, None)
+            bot.next_move = bot.determine_next_move(
+                {'id':bot.id, 'position': bot.position},
+                self.grid, 
+                enemies, 
+                self.bot_storage[bot.id],
+                None)
 
         # Execute moves after all bots determined what they want to do
         for bot in self.bots:
