@@ -6,11 +6,11 @@ import pygame
 class World:
 
     MOVES = {
-        'n' : np.array([0, 1], dtype=np.uint16),
-        'e' : np.array([1, 0], dtype=np.uint16),
-        'w' : np.array([-1, 0], dtype=np.uint16),
-        's' : np.array([0, -1], dtype=np.uint16),
-        'h' : np.array([0, 0], dtype=np.uint16)
+        'n': np.array([0, 1],  dtype=np.int16),
+        'e': np.array([1, 0],  dtype=np.int16),
+        'w': np.array([-1, 0], dtype=np.int16),
+        's': np.array([0, -1], dtype=np.int16),
+        'h': np.array([0, 0],  dtype=np.int16)
     }
 
     # 20 (actually 19, because balck/white) colours 
@@ -58,7 +58,7 @@ class World:
         self.grid_length = math.ceil(math.sqrt(cells_per_bot * len(self.bots)))
 
         # The grid will contain a colour, designated by some bot's id
-        self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.uint16)
+        self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.int16)
 
         # Randomize a list of IDs that we will assign to bots
         randomized_ids = list(range(1, len(self.bots) + 1))
@@ -77,7 +77,7 @@ class World:
             # Random start positions. Bots might start on top of another
             bot.position = np.array([
                 random.randint(0, self.grid_length-1), 
-                random.randint(0, self.grid_length-1)], dtype=np.uint16)
+                random.randint(0, self.grid_length-1)], dtype=np.int16)
 
     def determine_new_tile_colour(self, floor_colour, bot_colour):
         if floor_colour == 0: return bot_colour
@@ -102,15 +102,15 @@ class World:
             bot.position[1] = max(min(bot.position[1], self.grid_length - 1), 0)
 
         # Paint new colours
-        occupancy = { }
+        occupancy = np.zeros_like(self.grid)
         for bot in self.bots:
-            floor_colour = self.grid[bot.position[1]][bot.position[0]]
+            floor_colour = self.grid[bot.position[1], bot.position[0]]
             new_colour = 0
-            if floor_colour != 0 and not floor_colour in occupancy:
+            if occupancy[bot.position[1], bot.position[0]] == 0:
                 # This tile haven't been painted this step
                 new_colour = self.determine_new_tile_colour(floor_colour, bot.id)
             self.grid[bot.position[1]][bot.position[0]] = new_colour
-            occupancy[bot.id] = True
+            occupancy[bot.position[1], bot.position[0]] += 1
 
     def get_score(self):
         return {

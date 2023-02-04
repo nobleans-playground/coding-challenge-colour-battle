@@ -22,13 +22,13 @@ class ShortSightedSteve:
         if y < l - 1 and self.can_overwrite(self.id, grid[y+1][x]):
             return 'n'
         
-        if y > 1 and self.can_overwrite(self.id, grid[y-1][x]):
+        if y > 0 and self.can_overwrite(self.id, grid[y-1][x]):
             return 's'
         
         if x < l - 1 and self.can_overwrite(self.id, grid[y][x + 1]):
             return 'e'
         
-        if x > 1 and self.can_overwrite(self.id, grid[y][x - 1]):
+        if x > 0 and self.can_overwrite(self.id, grid[y][x - 1]):
             return 'w'
 
         # Couldn't find somewhere to go. 

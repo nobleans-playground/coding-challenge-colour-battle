@@ -32,10 +32,6 @@ class Game:
         # This list currently has to be kept updated manually
         self.world.add_bot(RamboTheRando())
         self.world.add_bot(RamboTheRando())
-        self.world.add_bot(RamboTheRando())
-        self.world.add_bot(RamboTheRando())
-        self.world.add_bot(ShortSightedSteve())
-        self.world.add_bot(ShortSightedSteve())
         self.world.add_bot(ShortSightedSteve())
         self.world.add_bot(ShortSightedSteve())
 
@@ -53,15 +49,18 @@ class Game:
         w = math.floor(min(self.canvas.get_size()) / self.world.grid_length)
         for ix, iy  in np.ndindex(grid.shape):
             colour = self.world.colour_map[grid[iy, ix]] + (100,) 
-            pygame.draw.rect(self.canvas, colour, (ix * w , iy * w, w, w))
+            pygame.draw.rect(self.canvas, colour, (ix * w, 
+                        # Invert the y, so that (0,0) is actually lower left
+                        self.window.get_height() - (iy + 1) * w, w, w))
         self.window.blit(self.canvas, (0, 0)) # We blit also so that we can set a custom alpha
 
         # Draw the bots
         for bot in self.world.bots:
-            pygame.draw.circle(self.window, self.world.colour_map[bot.id], 
-                ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/3))
-            pygame.draw.circle(self.window, (0, 0, 0), 
-                ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/10))
+            position = ((bot.position[0]+0.5) * w, 
+                        # Invert the y, so that (0,0) is actually lower left
+                        self.window.get_height() - ((bot.position[1]+0.5) * w))
+            pygame.draw.circle(self.window, self.world.colour_map[bot.id], position, w * 0.4, math.ceil(w/3))
+            pygame.draw.circle(self.window, (0, 0, 0), position, w * 0.4, math.ceil(w/10))
             
         # Draw the score board
         self.scoreboard.fill(self.GREY)
