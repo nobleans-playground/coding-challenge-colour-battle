@@ -14,17 +14,6 @@ class Game:
     GREY = (128, 128, 128)
     FONT = (0, 0, 0)
 
-    # Translates a bot ID to a colour
-    COLOURS = {
-        0: (255, 255, 255),
-        1: (255, 0, 0),     # Red
-        2: (0, 255, 0),     # Green
-        3: (0, 0, 255),     # Blue
-        4: (255, 255, 0),   # Yellow
-        5: (0, 255, 255),   # Cyan
-        6: (255, 0, 255),   # Magenta
-    }
-
     def __init__(self, window):
         self.world = World()
         self.add_bots()
@@ -42,6 +31,12 @@ class Game:
     def add_bots(self):
         # This list currently has to be kept updated manually
         self.world.add_bot(RamboTheRando())
+        self.world.add_bot(RamboTheRando())
+        self.world.add_bot(RamboTheRando())
+        self.world.add_bot(RamboTheRando())
+        self.world.add_bot(ShortSightedSteve())
+        self.world.add_bot(ShortSightedSteve())
+        self.world.add_bot(ShortSightedSteve())
         self.world.add_bot(ShortSightedSteve())
 
     def setup(self):
@@ -57,13 +52,13 @@ class Game:
         # Draw the colours
         w = math.floor(min(self.canvas.get_size()) / self.world.grid_length)
         for ix, iy  in np.ndindex(grid.shape):
-            colour = self.COLOURS[grid[iy, ix]] + (100,) 
+            colour = self.world.colour_map[grid[iy, ix]] + (100,) 
             pygame.draw.rect(self.canvas, colour, (ix * w , iy * w, w, w))
         self.window.blit(self.canvas, (0, 0)) # We blit also so that we can set a custom alpha
 
         # Draw the bots
         for bot in self.world.bots:
-            pygame.draw.circle(self.window, self.COLOURS[bot.id], 
+            pygame.draw.circle(self.window, self.world.colour_map[bot.id], 
                 ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/3))
             pygame.draw.circle(self.window, (0, 0, 0), 
                 ((bot.position[0]+0.5) * w, (bot.position[1]+0.5) * w), w * 0.4, math.ceil(w/10))
@@ -83,7 +78,7 @@ class Game:
         scores = [  [   # Calculate all scores and sort the list
                         bot.get_name(), 
                         round(100*score[bot.id]/max_score),
-                        self.COLOURS[bot.id]
+                        self.world.colour_map[bot.id]
                     ]
                     for bot in self.world.bots]
         scores.sort(reverse=True, key=lambda e: e[1])

@@ -18,7 +18,7 @@ This is the canvas on which your bot will paint. It's a 2D grid of integers, whe
 ``` Python
 cells_per_bot = 8 * 8    # The amount of space every bot will have on average
 grid_side_length = math.ceil(math.sqrt(cells_per_bot * number_of_bots))
-grid = np.zeros(grid_side_length, grid_side_length, dtype=np.int8)
+grid = np.zeros(grid_side_length, grid_side_length, dtype=np.uint16)
 ```
 
 ### Your Bot
@@ -28,7 +28,7 @@ As mentioned your bot will be a Python class. It will be assigned a random `ID`,
 **Important**: How you determine what the bot should do is up to you. You could train an AI, do complex path planning, or simply hunt the highest scoring opponent.
 
 ``` Python
-grid = np.array((N, N), dtype=np.int8)
+grid = np.array((N, N), dtype=np.uint16)
 
 game_info = {
     "step": 5,                  # Starts at 0
