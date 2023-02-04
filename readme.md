@@ -41,3 +41,4 @@ game_info = {
 - Targetting a specific other bot is not allowed (you may target the tactics of a general class of bot. 
 - May not attempt to alter other bot's internal state.
 - Bots may work together but must not communicate with each other and will not know each others IDs. The wins will be awarded individually rather than as a team.
+- You may not alter your bot's `id` or `position`. These values are read-only.

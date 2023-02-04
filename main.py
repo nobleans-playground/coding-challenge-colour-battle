@@ -2,16 +2,15 @@ import asyncio
 import pygame, sys
 from pygame.locals import *
 from game import Game
+from timeit import default_timer as timer
  
 # Game Setup
 FPS = 10
-fpsClock = pygame.time.Clock()
 WINDOW_WIDTH = 900
 WINDOW_HEIGHT = 600
  
 pygame.init()
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-
 pygame.display.set_caption('King of the Hill')
 
 game = Game(WINDOW)
@@ -24,15 +23,17 @@ async def main ():
   # The main game loop
   while looping :
     # Get inputs
-    for event in pygame.event.get() :
-      if event.type == QUIT :
+    for event in pygame.event.get():
+      if event.type == QUIT:
         pygame.quit()
         sys.exit()
     
     # Main processing
+    start = timer()
     game.step()
     game.render()
     pygame.display.update()
-    await asyncio.sleep(1 / FPS)
+    end = timer()
+    await asyncio.sleep(max(0, 1 / FPS - (end - start)))
  
 asyncio.run(main())

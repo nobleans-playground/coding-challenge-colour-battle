@@ -14,26 +14,30 @@ class World:
     }
 
     def __init__(self):
-        self.next_bot_id = 1 # Start at 1. 0 will show empty square
+        self.bot_types = []
         self.bots = []
 
     def add_bot(self, bot):
-        bot.id = self.next_bot_id
-        self.next_bot_id += 1
-        self.bots += [bot]
+        # Remember the type, so we can recreate it every round
+        # So that player can store values in the object itself
+        self.bot_types += [type(bot)]
 
     def setup(self):
+
+        # Create the bots
+        self.bots = [bot_type() for bot_type in self.bot_types]
+
+        # Create the grid
         cells_per_bot = 8 * 8
         self.grid_length = math.ceil(math.sqrt(cells_per_bot * len(self.bots)))
 
         # The grid will contain a colour, designated by some bot's id
         self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.int8)
 
-        # Setup bots
-        self.bot_storage = { }
-        for bot in self.bots:
-            # Reset storage
-            self.bot_storage[bot.id] = { }
+        # Give all bots their starting postions and assign IDs   
+        for i, bot in enumerate(self.bots):
+            # Assign id (starting at 1)
+            bot.id = i + 1
 
             # Random start positions. Bots might start on top of another
             bot.position = np.array([
@@ -52,10 +56,8 @@ class World:
         # Determine next moves
         for bot in self.bots:
             bot.next_move = bot.determine_next_move(
-                {'id':bot.id, 'position': bot.position},
                 self.grid, 
-                enemies, 
-                self.bot_storage[bot.id],
+                enemies,
                 None)
 
         # Execute moves after all bots determined what they want to do
