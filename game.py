@@ -31,8 +31,6 @@ class Game:
     def add_bots(self):
         # This list currently has to be kept updated manually
         self.world.add_bot(RamboTheRando())
-        self.world.add_bot(RamboTheRando())
-        self.world.add_bot(ShortSightedSteve())
         self.world.add_bot(ShortSightedSteve())
 
     def setup(self):
