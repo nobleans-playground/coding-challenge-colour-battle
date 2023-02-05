@@ -5,7 +5,6 @@ import pygame
 
 from robots.rambo_the_rando import RamboTheRando
 from robots.short_sighted_steve import ShortSightedSteve
-from timeit import default_timer as timer
 
 # The glue between the World and Pygame
 # Includes rendering
@@ -90,13 +89,13 @@ class Game:
         border = 5
         x = self.window.get_height() + border
         y = self.window.get_height() - border - size[1]
-        self.buttons += [self.Button((x, y), size, "\u23F5", lambda: self.button_function_play())]
+        self.buttons += [self.Button((x, y), size, "Play", lambda: self.button_function_play())]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "\u23F8", lambda: self.button_function_pause())]
+        self.buttons += [self.Button((x, y), size, "Stop", lambda: self.button_function_pause())]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "\u23FA", lambda: self.button_function_step())]
+        self.buttons += [self.Button((x, y), size, "Step", lambda: self.button_function_step())]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "\u23E9", lambda: self.button_function_fast())]
+        self.buttons += [self.Button((x, y), size, "Fast", lambda: self.button_function_fast())]
 
     def add_bots(self):
         # This list currently has to be kept updated manually
@@ -109,15 +108,18 @@ class Game:
         self.canvas_font = pygame.font.SysFont(None, math.ceil(self.cell_w * 0.8))
 
     def process(self):
-        start = timer()
         if self.state != "pause":
             self.step()
             if self.state == "step":
                 self.state = "pause"
         self.render()
         pygame.display.update()
-        end = timer()
-        return max(0, 1 / self.FPS - (end - start))
+
+        # This is not ideal because it will wait the same amount regardless
+        # if this process was quick or took a long time. We can't simply time
+        # it because this is called asynchronously when running in browser.
+        # Deemed good enough for now, the tournament won't be run with GUI anyway.
+        return 1 / self.FPS # Amount of time that should be waited before the next process
 
     def step(self):
         self.world.step()
