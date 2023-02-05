@@ -5,6 +5,12 @@ import pygame
 
 class World:
 
+    class GameInfo:
+        def __init__(self, length, size):
+            self.number_of_steps = length
+            self.current_step = 0
+            self.grid_size = size
+
     MOVES = {
         'n': np.array([0, 1],  dtype=np.int16),
         'e': np.array([1, 0],  dtype=np.int16),
@@ -13,35 +19,10 @@ class World:
         'h': np.array([0, 0],  dtype=np.int16)
     }
 
-    # 20 (actually 19, because balck/white) colours 
-    # From: https://sashamaps.net/docs/resources/20-colors/
-    COLOURS = [
-        (230, 25, 75),
-        (60, 180, 75),
-        (255, 225, 25),
-        (0, 130, 200),
-        (245, 130, 48),
-        (145, 30, 180),
-        (70, 240, 240),
-        (240, 50, 230),
-        (210, 245, 60),
-        (250, 190, 212),
-        (0, 128, 128),
-        (220, 190, 255),
-        (170, 110, 40),
-        (255, 250, 200),
-        (128, 0, 0),
-        (170, 255, 195),
-        (128, 128, 0),
-        (255, 215, 180),
-        (0, 0, 128),
-        (128, 128, 128),
-    ]
-
     def __init__(self):
         self.bot_types = []
         self.bots = []
-        self.colour_map = {0: (255, 255, 255)} # 0 is always white
+        self.colour_map = {0: 0} # 0 is always zero (white)
 
     def add_bot(self, bot):
         # Remember the type, so we can recreate it every round
@@ -56,6 +37,7 @@ class World:
         # Create the grid
         cells_per_bot = 8 * 8
         self.grid_length = math.ceil(math.sqrt(cells_per_bot * len(self.bots)))
+        self.game_info = self.GameInfo(2000, self.grid_length)
 
         # The grid will contain a colour, designated by some bot's id
         self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.int16)
@@ -69,10 +51,9 @@ class World:
             # Assign random id (starting at 1)
             bot.id = randomized_ids[i]
 
-            # Assign the next colour to this bot
-            # This is so that actual shown colours are dependent on order added
-            # and not on the randomized id
-            self.colour_map[bot.id] = self.COLOURS[i + 1] # Plus one because zero is white
+            # Assign bot unique number dependent on order added, and
+            # not the randomized ID so that colours can remain consistent
+            self.colour_map[bot.id] = i + 1
 
             # Random start positions. Bots might start on top of another
             bot.position = np.array([
@@ -84,16 +65,15 @@ class World:
         return [floor_colour, 0, bot_colour][abs(bot_colour - floor_colour) % 3]
 
     def step(self):
+        # Update game info
+        self.game_info.current_step += 1
 
         # Create enemies list
         enemies = [{"id": bot.id, "position": bot.position} for bot in self.bots]
 
         # Determine next moves
         for bot in self.bots:
-            bot.next_move = bot.determine_next_move(
-                self.grid, 
-                enemies,
-                None)
+            bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
 
         # Execute moves after all bots determined what they want to do
         for bot in self.bots:

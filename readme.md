@@ -31,9 +31,9 @@ As mentioned your bot will be a Python class. It will be assigned a random `ID`,
 grid = np.array((N, N), dtype=np.int16)
 
 game_info = {
-    "step": 5,                  # Starts at 0
+    "current_step": 5,          # Starts at 1
     "number_of_steps": 1000,    # amount of steps this round
-    "grid_size" = (20, 20),     # Size of grid (always square)
+    "grid_size" = 20,           # i.e. (20, 20). Grid is always square
 }
 ```
 
@@ -41,4 +41,4 @@ game_info = {
 - Targetting a specific other bot is not allowed (you may target the tactics of a general class of bot. 
 - May not attempt to alter other bot's internal state.
 - Bots may work together but must not communicate with each other and will not know each others IDs. The wins will be awarded individually rather than as a team.
-- You may not alter your bot's `id` or `position`. These values are read-only.
+- You may not alter any internal game variables, for example - but not limited to - the `id`, `position`, the `grid`, etc.

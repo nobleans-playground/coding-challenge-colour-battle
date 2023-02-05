@@ -14,14 +14,14 @@ WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption('King of the Hill')
 
 game = Game(WINDOW)
-game.setup()
+game.setup() 
  
 # The main function that controls the game
 async def main ():
   looping = True
   
   # The main game loop
-  while looping :
+  while looping : 
     # Get inputs
     for event in pygame.event.get():
       if event.type == QUIT:
