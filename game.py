@@ -54,16 +54,22 @@ class Game:
         (128, 128, 128),
     ]
 
-    def button_function_play(self):
-        self.state = "play"
-        self.FPS = self.FPS_NORMAL
-    def button_function_pause(self):
-        self.state = "pause"
-    def button_function_step(self):
-        self.state = "step"
-    def button_function_fast(self):
-        self.state = "play"
-        self.FPS = self.FPS_FAST
+    def button_handler(self, cmd):
+        if cmd == "play":
+            self.state = "play"
+            self.FPS = self.FPS_NORMAL
+        elif cmd == "pause":
+            self.state = "pause"
+        elif cmd == "step":
+            self.state = "step"
+        elif cmd == "fast":
+            self.state = "play"
+            self.FPS = self.FPS_FAST
+        elif cmd == "reset":
+            self.setup()
+            self.state = "pause"
+        elif cmd == "id":
+            self.draw_bot_ids = not self.draw_bot_ids
 
     def __init__(self, window):
         self.state = "pause"
@@ -85,17 +91,21 @@ class Game:
 
         # Keep track of buttons
         self.buttons = []
-        size = (40, 30)
+        size = (50, 30)
         border = 5
         x = self.window.get_height() + border
         y = self.window.get_height() - border - size[1]
-        self.buttons += [self.Button((x, y), size, "Play", lambda: self.button_function_play())]
+        self.buttons += [self.Button((x, y), size, "Play", lambda: self.button_handler("play"))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Stop", lambda: self.button_function_pause())]
+        self.buttons += [self.Button((x, y), size, "Stop", lambda: self.button_handler("pause"))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Step", lambda: self.button_function_step())]
+        self.buttons += [self.Button((x, y), size, "Step", lambda: self.button_handler("step"))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Fast", lambda: self.button_function_fast())]
+        self.buttons += [self.Button((x, y), size, "Fast", lambda: self.button_handler("fast"))]
+        x += size[0] + 2 * border
+        self.buttons += [self.Button((x, y), size, "Reset", lambda: self.button_handler("reset"))]
+        x += size[0] + 2 * border
+        self.buttons += [self.Button((x, y), size, "Id#", lambda: self.button_handler("id"))]
 
     def add_bots(self):
         # This list currently has to be kept updated manually
@@ -115,6 +125,8 @@ class Game:
         self.render()
         pygame.display.update()
 
+        if self.FPS == self.FPS_FAST:
+            return 0
         # This is not ideal because it will wait the same amount regardless
         # if this process was quick or took a long time. We can't simply time
         # it because this is called asynchronously when running in browser.
