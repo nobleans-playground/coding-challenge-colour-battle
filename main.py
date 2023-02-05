@@ -2,16 +2,14 @@ import asyncio
 import pygame, sys
 from pygame.locals import *
 from game import Game
-from timeit import default_timer as timer
  
-# Game Setup
-FPS = 10
+# Setup
 WINDOW_WIDTH = 900
 WINDOW_HEIGHT = 600
  
 pygame.init()
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-pygame.display.set_caption('King of the Hill')
+pygame.display.set_caption('Nobleo Colour Battle!')
 
 game = Game(WINDOW)
 game.setup() 
@@ -24,16 +22,13 @@ async def main ():
   while looping : 
     # Get inputs
     for event in pygame.event.get():
+      if event.type == pygame.MOUSEBUTTONDOWN:
+        game.handle_click(pygame.mouse.get_pos())
       if event.type == QUIT:
         pygame.quit()
         sys.exit()
     
-    # Main processing
-    start = timer()
-    game.step()
-    game.render()
-    pygame.display.update()
-    end = timer()
-    await asyncio.sleep(max(0, 1 / FPS - (end - start)))
+    # game.process determines how long to sleep
+    await asyncio.sleep(game.process())
  
 asyncio.run(main())

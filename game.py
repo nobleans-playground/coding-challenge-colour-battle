@@ -5,14 +5,30 @@ import pygame
 
 from robots.rambo_the_rando import RamboTheRando
 from robots.short_sighted_steve import ShortSightedSteve
+from timeit import default_timer as timer
 
 # The glue between the World and Pygame
 # Includes rendering
 class Game:
 
+    class Button:
+        def __init__(self, position, size, text, callback):
+            self.position = position
+            self.size = size
+            self.text = text
+            self.callback = callback
+        
+        def is_at_position(self, position):
+            return position[0] >= self.position[0] and position[0] <= self.position[0] + self.size[0] and \
+                    position[1] >= self.position[1] and position[1] <= self.position[1] + self.size[1]
+
+    BUTTON = (119,136,153)
     WHITE = (255, 255, 255)
     GREY = (128, 128, 128)
     BLACK = (0, 0, 0)
+
+    FPS_NORMAL = 10
+    FPS_FAST = 50
 
     # 20 (actually 18, because black/white was removed) colours 
     # From: https://sashamaps.net/docs/resources/20-colors/
@@ -39,7 +55,21 @@ class Game:
         (128, 128, 128),
     ]
 
+    def button_function_play(self):
+        self.state = "play"
+        self.FPS = self.FPS_NORMAL
+    def button_function_pause(self):
+        self.state = "pause"
+    def button_function_step(self):
+        self.state = "step"
+    def button_function_fast(self):
+        self.state = "play"
+        self.FPS = self.FPS_FAST
+
     def __init__(self, window):
+        self.state = "pause"
+        self.FPS = self.FPS_NORMAL
+
         self.world = World()
         self.add_bots()
         self.draw_bot_ids = False
@@ -54,6 +84,20 @@ class Game:
         self.scoreboard = pygame.Surface(self.window.get_size())
         self.font = pygame.font.SysFont(None, 24)
 
+        # Keep track of buttons
+        self.buttons = []
+        size = (40, 30)
+        border = 5
+        x = self.window.get_height() + border
+        y = self.window.get_height() - border - size[1]
+        self.buttons += [self.Button((x, y), size, "\u23F5", lambda: self.button_function_play())]
+        x += size[0] + 2 * border
+        self.buttons += [self.Button((x, y), size, "\u23F8", lambda: self.button_function_pause())]
+        x += size[0] + 2 * border
+        self.buttons += [self.Button((x, y), size, "\u23FA", lambda: self.button_function_step())]
+        x += size[0] + 2 * border
+        self.buttons += [self.Button((x, y), size, "\u23E9", lambda: self.button_function_fast())]
+
     def add_bots(self):
         # This list currently has to be kept updated manually
         self.world.add_bot(RamboTheRando())
@@ -63,6 +107,17 @@ class Game:
         self.world.setup()
         self.cell_w = math.floor(min(self.canvas.get_size()) / self.world.grid_length)
         self.canvas_font = pygame.font.SysFont(None, math.ceil(self.cell_w * 0.8))
+
+    def process(self):
+        start = timer()
+        if self.state != "pause":
+            self.step()
+            if self.state == "step":
+                self.state = "pause"
+        self.render()
+        pygame.display.update()
+        end = timer()
+        return max(0, 1 / self.FPS - (end - start))
 
     def step(self):
         self.world.step()
@@ -125,7 +180,7 @@ class Game:
         for score in sorted_scores:
             bot_name, bot_score, bot_id = score
             # Draw colour square
-            pygame.draw.rect(self.scoreboard, self.colour_from_id(colour_id), 
+            pygame.draw.rect(self.scoreboard, self.colour_from_id(bot_id), 
                              (border, name_y, colour_box_size, colour_box_size))
             
             # Draw number over the square
@@ -150,3 +205,20 @@ class Game:
             # Update write location
             name_y += line_height + spacing
         self.window.blit(self.scoreboard, (self.window.get_size()[1], 0))
+
+        # Draw the buttons (also on the scoreboard)
+        for button in self.buttons:
+            pygame.draw.rect(self.window, self.BUTTON, (*button.position, *button.size))
+            font = pygame.font.SysFont("segoeuisymbol", math.ceil(button.size[1] * 0.8))
+            text_size = font.size(button.text)
+            text = font.render(button.text, True, self.BLACK)
+            text_size = font.size(button.text)
+            self.window.blit(text, (
+                    button.position[0] + button.size[0]/2 - text_size[0]/2, 
+                    button.position[1] + button.size[1]/2 - text_size[1]/2))
+
+    def handle_click(self, mouse):
+        for button in self.buttons:
+            if button.is_at_position(mouse):
+                button.callback()
+                return
