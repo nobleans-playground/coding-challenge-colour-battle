@@ -7,8 +7,8 @@ class World:
 
     class GameInfo:
         def __init__(self, length, size):
-            self.number_of_steps = length
-            self.current_step = 0
+            self.number_of_rounds = length
+            self.current_round = 0
             self.grid_size = size
 
     MOVES = {
@@ -29,7 +29,7 @@ class World:
         # So that player can store values in the object itself
         self.bot_types += [type(bot)]
 
-    def setup(self):
+    def setup(self, number_of_rounds):
 
         # Create the bots
         self.bots = [bot_type() for bot_type in self.bot_types]
@@ -37,7 +37,7 @@ class World:
         # Create the grid
         cells_per_bot = 8 * 8
         self.grid_length = math.ceil(math.sqrt(cells_per_bot * len(self.bots)))
-        self.game_info = self.GameInfo(2000, self.grid_length)
+        self.game_info = self.GameInfo(number_of_rounds, self.grid_length)
 
         # The grid will contain a colour, designated by some bot's id
         self.grid = np.zeros((self.grid_length, self.grid_length), dtype=np.int16)
@@ -60,13 +60,13 @@ class World:
                 random.randint(0, self.grid_length-1), 
                 random.randint(0, self.grid_length-1)], dtype=np.int16)
 
-    def determine_new_tile_colour(self, floor_colour, bot_colour):
+    def determine_new_tile_colour(self, floor_colour, bot_colour) -> int:
         if floor_colour == 0: return bot_colour
         return [floor_colour, 0, bot_colour][abs(bot_colour - floor_colour) % 3]
 
-    def step(self):
+    def step(self) -> bool:
         # Update game info
-        self.game_info.current_step += 1
+        self.game_info.current_round += 1
 
         # Create enemies list
         enemies = [{"id": bot.id, "position": bot.position} for bot in self.bots]
@@ -91,6 +91,9 @@ class World:
                 new_colour = self.determine_new_tile_colour(floor_colour, bot.id)
             self.grid[bot.position[1]][bot.position[0]] = new_colour
             occupancy[bot.position[1], bot.position[0]] += 1
+
+        # Return true if the game is done
+        return self.game_info.current_round == self.game_info.number_of_rounds
 
     def get_score(self):
         return {

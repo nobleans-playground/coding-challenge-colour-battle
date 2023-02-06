@@ -1,6 +1,7 @@
 from world import World
 import math
 import numpy as np
+from enum import Enum
 import pygame
 
 from robots.rambo_the_rando import RamboTheRando
@@ -9,6 +10,13 @@ from robots.short_sighted_steve import ShortSightedSteve
 # The glue between the World and Pygame
 # Includes rendering
 class Game:
+
+    class State(Enum):
+        PLAY = 1
+        PAUSE = 2
+        STEP = 3
+        FAST = 4
+        RESET = 5
 
     class Button:
         def __init__(self, position, size, text, callback):
@@ -55,25 +63,26 @@ class Game:
     ]
 
     def button_handler(self, cmd):
-        if cmd == "play":
-            self.state = "play"
+        if cmd == self.State.PLAY:
+            self.state = self.State.PLAY
             self.FPS = self.FPS_NORMAL
-        elif cmd == "pause":
-            self.state = "pause"
-        elif cmd == "step":
-            self.state = "step"
-        elif cmd == "fast":
-            self.state = "play"
+        elif cmd == self.State.PAUSE:
+            self.state = self.State.PAUSE
+        elif cmd == self.State.STEP:
+            self.state = self.State.STEP
+        elif cmd == self.State.FAST:
+            self.state = self.State.PLAY
             self.FPS = self.FPS_FAST
         elif cmd == "reset":
             self.setup()
-            self.state = "pause"
-        elif cmd == "id":
+            self.state = self.State.STEP
+        if cmd == "id":
             self.draw_bot_ids = not self.draw_bot_ids
 
     def __init__(self, window):
-        self.state = "pause"
+        self.state = self.State.PAUSE
         self.FPS = self.FPS_NORMAL
+        self.number_of_rounds = 1000
 
         self.world = World()
         self.add_bots()
@@ -95,13 +104,13 @@ class Game:
         border = 5
         x = self.window.get_height() + border
         y = self.window.get_height() - border - size[1]
-        self.buttons += [self.Button((x, y), size, "Play", lambda: self.button_handler("play"))]
+        self.buttons += [self.Button((x, y), size, "Play", lambda: self.button_handler(self.State.PLAY))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Stop", lambda: self.button_handler("pause"))]
+        self.buttons += [self.Button((x, y), size, "Stop", lambda: self.button_handler(self.State.PAUSE))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Step", lambda: self.button_handler("step"))]
+        self.buttons += [self.Button((x, y), size, "Step", lambda: self.button_handler(self.State.STEP))]
         x += size[0] + 2 * border
-        self.buttons += [self.Button((x, y), size, "Fast", lambda: self.button_handler("fast"))]
+        self.buttons += [self.Button((x, y), size, "Fast", lambda: self.button_handler(self.State.FAST))]
         x += size[0] + 2 * border
         self.buttons += [self.Button((x, y), size, "Reset", lambda: self.button_handler("reset"))]
         x += size[0] + 2 * border
@@ -113,15 +122,22 @@ class Game:
         self.world.add_bot(ShortSightedSteve())
 
     def setup(self):
-        self.world.setup()
+        self.done = False
+        self.world.setup(self.number_of_rounds)
         self.cell_w = math.floor(min(self.canvas.get_size()) / self.world.grid_length)
         self.canvas_font = pygame.font.SysFont(None, math.ceil(self.cell_w * 0.8))
 
     def process(self):
-        if self.state != "pause":
-            self.step()
-            if self.state == "step":
-                self.state = "pause"
+        if self.state != self.State.PAUSE:
+            if self.done:
+                self.setup()
+            if self.step():
+                # Game is done.
+                self.done = True
+                self.state = self.State.PAUSE
+            if self.state == self.State.STEP:
+                self.state = self.State.PAUSE
+        
         self.render()
         pygame.display.update()
 
@@ -133,8 +149,9 @@ class Game:
         # Deemed good enough for now, the tournament won't be run with GUI anyway.
         return 1 / self.FPS # Amount of time that should be waited before the next process
 
-    def step(self):
-        self.world.step()
+    def step(self) -> bool:
+        # return true if game is done
+        return self.world.step()
 
     def colour_from_id(self, id):
         if id == 0: return self.WHITE
@@ -221,15 +238,23 @@ class Game:
         self.window.blit(self.scoreboard, (self.window.get_size()[1], 0))
 
         # Draw the buttons (also on the scoreboard)
+        button_font = pygame.font.SysFont(None, math.ceil(self.buttons[0].size[1] * 0.8))
         for button in self.buttons:
             pygame.draw.rect(self.window, self.BUTTON, (*button.position, *button.size))
-            font = pygame.font.SysFont("segoeuisymbol", math.ceil(button.size[1] * 0.8))
-            text_size = font.size(button.text)
-            text = font.render(button.text, True, self.BLACK)
-            text_size = font.size(button.text)
+            text_size = button_font.size(button.text)
+            text = button_font.render(button.text, True, self.BLACK)
+            text_size = button_font.size(button.text)
             self.window.blit(text, (
                     button.position[0] + button.size[0]/2 - text_size[0]/2, 
                     button.position[1] + button.size[1]/2 - text_size[1]/2))
+        
+        # Print some stats
+        ref_button = self.buttons[0]
+        ll_position = (ref_button.position[0], ref_button.position[1] - 10)
+        text_to_render = "Round: {:<4}/{:<4}".format(self.world.game_info.current_round, self.world.game_info.number_of_rounds)
+        text = button_font.render(text_to_render, True, self.BLACK)
+        text_size = button_font.size(text_to_render)
+        self.window.blit(text, (ll_position[0], ll_position[1] - text_size[1]/2))
 
     def handle_click(self, mouse):
         for button in self.buttons:

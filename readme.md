@@ -31,8 +31,8 @@ As mentioned your bot will be a Python class. It will be assigned a random `ID`,
 grid = np.array((N, N), dtype=np.int16)
 
 game_info = {
-    "current_step": 5,          # Starts at 1
-    "number_of_steps": 1000,    # amount of steps this round
+    "current_round": 5,          # Starts at 1
+    "number_of_rounds": 1000,    # amount of steps this round
     "grid_size" = 20,           # i.e. (20, 20). Grid is always square
 }
 ```
