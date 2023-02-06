@@ -1,6 +1,6 @@
 import random
 import numpy as np
-
+from .bot_control import Move
 
 class RamboTheRando:
 
@@ -28,10 +28,10 @@ class RamboTheRando:
         
         # Move in direction of target
         if self.target[0] > self.position[0]:
-            return "e"
+            return Move.RIGHT
         elif self.target[0] < self.position[0]:
-            return "w"
+            return Move.LEFT
         elif self.target[1] > self.position[1]:
-            return "n"
+            return Move.UP
         else:
-            return "s"
+            return Move.DOWN

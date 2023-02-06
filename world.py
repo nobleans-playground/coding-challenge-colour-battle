@@ -2,6 +2,7 @@ import numpy as np
 import math
 import random
 import pygame
+from robots.bot_control import Move
 
 class World:
 
@@ -11,12 +12,12 @@ class World:
             self.current_round = 0
             self.grid_size = size
 
-    MOVES = {
-        'n': np.array([0, 1],  dtype=np.int16),
-        'e': np.array([1, 0],  dtype=np.int16),
-        'w': np.array([-1, 0], dtype=np.int16),
-        's': np.array([0, -1], dtype=np.int16),
-        'h': np.array([0, 0],  dtype=np.int16)
+    MOVE_TO_VECTOR = {
+        Move.UP: np.array([0, 1],  dtype=np.int16),
+        Move.RIGHT: np.array([1, 0],  dtype=np.int16),
+        Move.LEFT: np.array([-1, 0], dtype=np.int16),
+        Move.DOWN: np.array([0, -1], dtype=np.int16),
+        Move.STAY: np.array([0, 0],  dtype=np.int16)
     }
 
     def __init__(self):
@@ -74,10 +75,12 @@ class World:
         # Determine next moves
         for bot in self.bots:
             bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
+            if not bot.next_move in self.MOVE_TO_VECTOR:
+                raise Exception(f"Bot \"{bot.get_name()}\" attempted an invalid move \"{bot.next_move}\"")
 
         # Execute moves after all bots determined what they want to do
         for bot in self.bots:
-            bot.position = np.add(bot.position, self.MOVES[bot.next_move])
+            bot.position = np.add(bot.position, self.MOVE_TO_VECTOR[bot.next_move])
             bot.position[0] = max(min(bot.position[0], self.grid_length - 1), 0)
             bot.position[1] = max(min(bot.position[1], self.grid_length - 1), 0)
 
