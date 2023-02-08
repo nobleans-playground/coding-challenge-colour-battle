@@ -63,7 +63,36 @@ def determine_next_move(self, grid, enemies, game_info):
 ```
 **Note:** Any moves to outside the grid limits will simply be ignored.
 
-## Rules:
+## Final Scoring
+The final standings will be determined in an epic tournament consisting of 1000 games consisting of a 1000 rounds each where all bots will be placed in a single arena. After each game the total the amount of painted tiles for each bot will be counted, and at the end all the tournament all the game's scores will be added together.
+
+**Note:** The amount of games or rounds might be adjusted depending on the amount of bots submitted, or if it's found that 1000 is not long enough for an accurate representation. If the amount of bots is too large then a Round-Robin-ish implementation might be implemented.
+
+## Submitting
+
+Bots need to be submitted through a Github Pull Request (PR), meaning you need to create a GitHub account. You will create one PR for each bot. This PR will not be merged until the end. Rather, when you let me know you updated your code, then your commits will be `cherry-pick`ed into the `master` branch.
+
+**Note:** You are allowed to submit a maximum of two bots.
+
+**Steps to submit a bot:**
+1. Clone the this repository.
+2. Create your own fork where this bot will live. E.g. `git checkout -b bob-ross-bot`
+3. Create the bot in the folder `robots/`, similar to the example bots.
+4. In `game.py` add code to `import` your bot and `add_bot(...)` at the bottom of the list.
+5. Commit, add, and push your code back into `origin` to be available online.
+6. Create a Pull-Request from your branch into master with your bot name, and a short description of how it works.
+7. Your code will then be manually moved into master, leaving your PR open to make future updates or changes.
+
+Your branch might become outdated with `master` as other players contribute their bots. You can easily update your branch with `git fetch` followed by `git merge master --theirs`. This might require you to resolve some conflicts in `game.py`, but they should be trivial to fix. 
+
+## Running the bot on your machine
+You can develop and test your bot on your local machine, and should be doable on either Windows or Linux. All you need is the following Python packages on your machine, `pygame` and `numpy`.
+
+You can run the game in two modes by running one of the following two files:
+- `main.py`: Regular game with GUI.
+- `tournament.py`: (Not yet ready) Run a test tournament without a GUI. After it's done it will print out the rankings. Use `--games 100` or `--rounds 100` to alter the length of the tournament. Defaults to one game of 1000 rounds.
+
+## Rules
 - Targetting a specific other bot is not allowed, although you may target the tactics of a general class of bot. 
 - May not attempt to alter other bot's internal state.
 - Bots may work together but must not communicate with each other and will not know each others IDs. The wins will be awarded individually rather than as a team.
