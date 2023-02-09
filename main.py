@@ -4,8 +4,8 @@ from pygame.locals import *
 from game import Game
  
 # Setup
-WINDOW_WIDTH = 1300
-WINDOW_HEIGHT = 900
+WINDOW_WIDTH = 1000
+WINDOW_HEIGHT = 700
  
 pygame.init()
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))

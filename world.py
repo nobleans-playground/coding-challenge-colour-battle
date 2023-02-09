@@ -28,7 +28,7 @@ class World:
     def add_bot(self, bot):
         # Remember the type, so we can recreate it every round
         # So that player can store values in the object itself
-        self.bot_types += [type(bot)]
+        self.bot_types += [bot]
 
     def setup(self, number_of_rounds):
 

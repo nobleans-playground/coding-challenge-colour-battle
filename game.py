@@ -4,8 +4,7 @@ import numpy as np
 from enum import Enum
 import pygame
 
-from robots.rambo_the_rando import RamboTheRando
-from robots.short_sighted_steve import ShortSightedSteve
+from robots.bot_list import BotList
 
 # The glue between the World and Pygame
 # Includes rendering
@@ -117,9 +116,8 @@ class Game:
         self.buttons += [self.Button((x, y), size, "Id#", lambda: self.button_handler("id"))]
 
     def add_bots(self):
-        # This list currently has to be kept updated manually
-        self.world.add_bot(RamboTheRando())
-        self.world.add_bot(ShortSightedSteve())
+        for bot in BotList:
+            self.world.add_bot(bot)
 
     def setup(self):
         self.done = False

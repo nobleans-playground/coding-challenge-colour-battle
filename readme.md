@@ -78,12 +78,12 @@ Bots need to be submitted through a Github Pull Request (PR), meaning you need t
 1. Clone the this repository.
 2. Create your own fork where this bot will live. E.g. `git checkout -b bob-ross-bot`
 3. Create the bot in the folder `robots/`, similar to the example bots.
-4. In `game.py` add code to `import` your bot and `add_bot(...)` at the bottom of the list.
+4. In `robots/bot_list.py` add your bot to the bottom of the list.
 5. Commit, add, and push your code back into `origin` to be available online.
 6. Create a Pull-Request from your branch into master with your bot name, and a short description of how it works.
 7. Your code will then be manually moved into master, leaving your PR open to make future updates or changes.
 
-Your branch might become outdated with `master` as other players contribute their bots. You can easily update your branch with `git fetch` followed by `git merge master --theirs`. This might require you to resolve some conflicts in `game.py`, but they should be trivial to fix. 
+Your branch might become outdated with `master` as other players contribute their bots. You can easily update your branch with `git fetch` followed by `git merge master --theirs`. This might require you to resolve some conflicts in `bot_list.py`, but they should be trivial to fix. 
 
 ## Running the bot on your machine
 You can develop and test your bot on your local machine, and should be doable on either Windows or Linux. All you need is the following Python packages on your machine, `pygame` and `numpy`.
