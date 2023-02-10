@@ -11,7 +11,7 @@ class RamboTheRando:
         return "Rambo The Rando"
 
     def get_contributor(self):
-        return "Hein"
+        return "Nobleo"
 
     def determine_next_move(self, grid, enemies, game_info):
         # Chooses a random target location, and moves there.

@@ -1,7 +1,6 @@
 import numpy as np
 import math
 import random
-import pygame
 from robots.bot_control import Move
 
 class World:

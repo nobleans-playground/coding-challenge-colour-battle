@@ -4,7 +4,7 @@ from pygame.locals import *
 from game import Game
  
 # Setup
-WINDOW_WIDTH = 1000
+WINDOW_WIDTH = 1100
 WINDOW_HEIGHT = 700
  
 pygame.init()

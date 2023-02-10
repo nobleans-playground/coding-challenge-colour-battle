@@ -6,7 +6,7 @@ class ShortSightedSteve:
         return "Short Sighted Steve"
 
     def get_contributor(self):
-        return "Hein"
+        return "Nobleo"
 
     def can_overwrite(self, id, tile):
         if tile == 0: return True

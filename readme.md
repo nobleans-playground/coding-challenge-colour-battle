@@ -1,14 +1,14 @@
-# King of the Hill: Colour Run!
+# King of the Hill: Colour Battle!
 
 The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
 
-[View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-run/)
+[View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-battle/)
 
 You will write your bot's logic in a Python class. In each iteration of the game a specific function in your bot will be called (with relevant information as arguments), and your bot will need to decide in which direction to turn.
 
 Here you can see two example bots. Do you have what it takes to out-paint _Rambo the Rando?!_
-- [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-colour-run/blob/master/robots/rambo_the_rando.py)
-- [Short Sighted Steve](https://github.com/nobleans-playground/coding-challenge-colour-run/blob/master/robots/short_sighted_steve.py)
+- [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-colour-battle/blob/master/robots/rambo_the_rando.py)
+- [Short Sighted Steve](https://github.com/nobleans-playground/coding-challenge-colour-battle/blob/master/robots/short_sighted_steve.py)
 
 ## Some Concepts
 
@@ -76,7 +76,7 @@ Bots need to be submitted through a Github Pull Request (PR), meaning you need t
 
 **Steps to submit a bot:**
 1. Clone the this repository.
-2. Create your own fork where this bot will live. E.g. `git checkout -b bob-ross-bot`
+2. Create your own fork where this bot will live.
 3. Create the bot in the folder `robots/`, similar to the example bots.
 4. In `robots/bot_list.py` add your bot to the bottom of the list.
 5. Commit, add, and push your code back into `origin` to be available online.
@@ -84,6 +84,8 @@ Bots need to be submitted through a Github Pull Request (PR), meaning you need t
 7. Your code will then be manually moved into master, leaving your PR open to make future updates or changes.
 
 Your branch might become outdated with `master` as other players contribute their bots. You can easily update your branch with `git fetch` followed by `git merge master --theirs`. This might require you to resolve some conflicts in `bot_list.py`, but they should be trivial to fix. 
+
+You may update your bot's code at any time, and as much as you like, until the deadline. You can do this by pushing your code to your pull request, and I will update your bot in `master` accordingly.
 
 ## Running the bot on your machine
 You can develop and test your bot on your local machine, and should be doable on either Windows or Linux. All you need is the following Python packages on your machine, `pygame` and `numpy`.
