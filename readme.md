@@ -2,13 +2,13 @@
 
 The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
 
-[View the already submitted bots battle online here!](https://heinwessels.github.io/test/)
+[View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-run/)
 
 You will write your bot's logic in a Python class. In each iteration of the game a specific function in your bot will be called (with relevant information as arguments), and your bot will need to decide in which direction to turn.
 
 Here you can see two example bots. Do you have what it takes to out-paint _Rambo the Rando?!_
-- [Rambo the Rando](https://github.com/heinwessels/test/blob/master/robots/rambo_the_rando.py)
-- [Short Sighted Steve](https://github.com/heinwessels/test/blob/master/robots/short_sighted_steve.py)
+- [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-colour-run/blob/master/robots/rambo_the_rando.py)
+- [Short Sighted Steve](https://github.com/nobleans-playground/coding-challenge-colour-run/blob/master/robots/short_sighted_steve.py)
 
 ## Some Concepts
 
