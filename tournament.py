@@ -7,7 +7,7 @@ import time
 parser = argparse.ArgumentParser(description='Nobleo Colour Run')
 parser.add_argument('--rounds', type=int, default=1000,
                     help='number of rounds in a single game')
-parser.add_argument('--games', type=int, default=1000,
+parser.add_argument('--games', type=int, default=1,
                     help='number of games to play')
 args = parser.parse_args()
 

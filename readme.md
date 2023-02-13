@@ -1,4 +1,4 @@
-# King of the Hill: Colour Battle!
+# Coding Challenge: Colour Battle!
 
 The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
 
@@ -7,7 +7,7 @@ The goal is the fill as much as possible of the canvas with your bot's colour. Y
 You will write your bot's logic in a Python class. In each iteration of the game a specific function in your bot will be called (with relevant information as arguments), and your bot will need to decide in which direction to turn.
 
 Here you can see two example bots. Do you have what it takes to out-paint _Rambo the Rando?!_
-- [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-colour-battle/blob/master/robots/rambo_the_rando.py)
+- [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-bot-template/blob/main/rambo_the_rando.py)
 - [Short Sighted Steve](https://github.com/nobleans-playground/coding-challenge-colour-battle/blob/master/robots/short_sighted_steve.py)
 
 ## Some Concepts
@@ -70,22 +70,26 @@ The final standings will be determined in an epic tournament consisting of 1000 
 
 ## Submitting
 
-Bots need to be submitted through a Github Pull Request (PR), meaning you need to create a GitHub account. You will create one PR for each bot. This PR will not be merged until the end. Rather, when you let me know you updated your code, then your commits will be `cherry-pick`ed into the `master` branch.
+Your bot will live as a git submodule inside the main challenge repository. This means you will need to create your own GitHub account and create a new repository based on a template. You can follow the following steps to create your own bot.  
 
 **Note:** You are allowed to submit a maximum of two bots.
 
 **Steps to submit a bot:**
-1. Clone the this repository.
-2. Create your own fork where this bot will live.
-3. Create the bot in the folder `robots/`, similar to the example bots.
-4. In `robots/bot_list.py` add your bot to the bottom of the list.
-5. Commit, add, and push your code back into `origin` to be available online.
-6. Create a Pull-Request from your branch into master with your bot name, and a short description of how it works.
-7. Your code will then be manually moved into master, leaving your PR open to make future updates or changes.
+1. Create a GitHub account if you don't have one already. Using a personal account is fine.
+2. Ask Tim Clephas to add you to the [Nobleans Playground](https://github.com/nobleans-playground) Organisation. **Note:** This is optional. You will only need this if you want to use a repository template for Step 3.
+3. Create a personal repository where your bot will live. It needs to look like this [template](https://github.com/nobleans-playground/coding-challenge-bot-template). If you joined the Playground Organisation you can select the `template-bot` as template for your new repository.
+4.  Give your bot a custom name, add your name as contributor, and some custom logic (can be done later as well).
+5. Notify a organizer (Hein Wessels) to add your bot to the challenge as a submodule in the main repository. **Note:** Your bot doesn't have to be complete to be added. It simply needs to run and return a valid move. You can update/change/refactor your bot at any point during the challenge.
+6. After your bot has been added you observe it fighting for colour squares [online](https://nobleans-playground.github.io/coding-challenge-colour-battle/)!
 
-Your branch might become outdated with `master` as other players contribute their bots. You can easily update your branch with `git fetch` followed by `git merge master --theirs`. This might require you to resolve some conflicts in `bot_list.py`, but they should be trivial to fix. 
+**Running the challenge on your own machine**
+1. Clone _this_ repository using `git clone --recursive [URL]`. The `--recursive` is to pull in all submodule bots.
+2. If your bot's submodule has been added as a submodule then you can develop your bot in your folder. Remember to `add/commit/push` your changes once you're done so that the online simulation can be updated with your newest bot. (Will still need a manual refresh by an organiser)
+3. **If your bot has not been **added to the main repository you can temporarily add it to `robots/`, similar to `ShortSightedSteve`. Remember to add ot tp `bot_list.py` as well.
+4. Run `main.py` to watch the current bots battle for the canvas with a nice GUI (if using VSCode press `F5` to run it in `debug` mode). Or run `tournament.py` to run it without a GUI and simply print out the end rankings.
 
-You may update your bot's code at any time, and as much as you like, until the deadline. You can do this by pushing your code to your pull request, and I will update your bot in `master` accordingly.
+**Updating your local repository with the newest changes**
+Over the course of the challenge your local repository might be out-of-date with all the other bots. You will need to run `git submodule update --remote` to pull in all the newest bot changes. It might also be that some challenge-engine code was altered, which you will also have to `pull`.
 
 ## Running the bot on your machine
 You can develop and test your bot on your local machine, and should be doable on either Windows or Linux. All you need is the following Python packages on your machine, `pygame` and `numpy`.
@@ -96,6 +100,6 @@ You can run the game in two modes by running one of the following two files:
 
 ## Rules
 - Targetting a specific other bot is not allowed, although you may target the tactics of a general class of bot. 
-- May not attempt to alter other bot's internal state.
-- Bots may work together but must not communicate with each other and will not know each others IDs. The wins will be awarded individually rather than as a team.
-- You may not attempt to alter any internal game variables, for example, but not limited to, the `id`, `position`, the `grid`, etc.
+- Bots may work together but may not communicate with each other and will not know each others IDs (will be randomized anyway). The wins will be awarded individually rather than as a team.
+- You may not attempt to alter other bot's internal state, or any other internal game variables, f.i. `id`, `position`, the `grid`, etc.
+- Python libraries that will simplify this challenge may **not**. An exception can be made for lightweight-ish neural networks if you trained the bot yourself.
