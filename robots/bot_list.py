@@ -9,4 +9,6 @@ RamboTheRando = importlib.import_module("robots.coding-challenge-bot-template.ra
 BotList = [
     RamboTheRando,
     ShortSightedSteve,
+    RamboTheRando,
+    ShortSightedSteve,
 ]
