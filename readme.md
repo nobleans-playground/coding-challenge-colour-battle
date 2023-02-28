@@ -1,8 +1,10 @@
 # Coding Challenge: Colour Battle!
 
+![](images/banner.png)
+
 The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
 
-[View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-battle/)
+[~~View the already submitted bots battle online here~~!](https://nobleans-playground.github.io/coding-challenge-colour-battle/) _Temporarily out of Order_
 
 You will write your bot's logic in a Python class. In each iteration of the game a specific function in your bot will be called (with relevant information as arguments), and your bot will need to decide in which direction to turn.
 
