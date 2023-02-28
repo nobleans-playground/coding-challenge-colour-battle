@@ -28,7 +28,7 @@ async def main ():
         pygame.quit()
         sys.exit()
     
-    # game.process determines how long to sleep
-    await asyncio.sleep(game.process())
+    game.process()
+    await asyncio.sleep(0)
  
 asyncio.run(main())
