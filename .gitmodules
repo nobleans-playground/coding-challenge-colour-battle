@@ -1,3 +1,4 @@
 [submodule "robots/coding-challenge-bot-template"]
 	path = robots/coding-challenge-bot-template
 	url = https://github.com/nobleans-playground/coding-challenge-bot-template/
+	branch = main

@@ -28,7 +28,6 @@ async def main ():
         pygame.quit()
         sys.exit()
     
-    game.process()
-    await asyncio.sleep(0)
+    await asyncio.sleep(game.process())
  
 asyncio.run(main())
