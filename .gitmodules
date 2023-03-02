@@ -2,3 +2,6 @@
 	path = robots/coding-challenge-bot-template
 	url = https://github.com/nobleans-playground/coding-challenge-bot-template/
 	branch = main
+[submodule "robots/DanielsRobot"]
+	path = robots/DanielsRobot
+	url = git@github.com:danielpijnenborg/Daniels_robot.git
