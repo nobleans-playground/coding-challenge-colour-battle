@@ -62,7 +62,7 @@ class World:
 
     def determine_new_tile_colour(self, floor_colour, bot_colour) -> int:
         if floor_colour == 0: return bot_colour
-        return [floor_colour, 0, bot_colour][abs(bot_colour - floor_colour) % 3]
+        return [floor_colour, 0, bot_colour][(bot_colour - floor_colour) % 3]
 
     def step(self) -> bool:
         # Update game info

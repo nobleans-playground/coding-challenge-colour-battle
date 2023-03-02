@@ -10,7 +10,7 @@ class ShortSightedSteve:
 
     def can_overwrite(self, id, tile):
         if tile == 0: return True
-        return abs(id - tile) % 3 == 2
+        return (id - tile) % 3 == 2
 
     def determine_next_move(self, grid, enemies, game_info):
         # Check each adjacent tile and see if it can overwrite that

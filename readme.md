@@ -31,7 +31,7 @@ Your bot will move around on the grid (or canvas). Each round you can choose if 
 ``` Python
 def determine_new_tile_colour(self, floor_colour, bot_colour):
         if floor_colour == 0: return bot_colour # Bot always paints a white floor tile
-        return [floor_colour, 0, bot_colour][abs(bot_colour - floor_colour) % 3]
+        return [floor_colour, 0, bot_colour][(bot_colour - floor_colour) % 3]
 ```
 
 The goal of this equation is to allow smarter bots to perform better by possibly seeking the tiles that are easier to paint. 
