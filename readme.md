@@ -61,7 +61,7 @@ Each round your bot will execute the following function that will receive these 
 #       grid_size           Width (or height) of the grid.
 def determine_next_move(self, grid, enemies, game_info):
     # Your logic here
-    return Move.UP  # This bot will always go up
+    return Move.UP  # This bot will always go up. An invalid move will be treated as Move.STAY.
 ```
 **Note:** Any moves to outside the grid limits will simply be ignored.
 
@@ -105,3 +105,4 @@ You can run the game in two modes by running one of the following two files:
 - Bots may work together but may not communicate with each other and will not know each others IDs (will be randomized anyway). The wins will be awarded individually rather than as a team.
 - You may not attempt to alter other bot's internal state, or any other internal game variables, f.i. `id`, `position`, the `grid`, etc.
 - Python libraries that will simplify this challenge may **not**. An exception can be made for lightweight-ish neural networks if you trained the bot yourself.
+- Your bot may not intentionally crash. During the tournament any crashes of your bot will be treated as `Move.STAY` command.
