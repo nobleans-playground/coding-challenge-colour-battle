@@ -5,3 +5,8 @@
 [submodule "robots/DanielsRobot"]
 	path = robots/DanielsRobot
 	url = git@github.com:danielpijnenborg/Daniels_robot.git
+	branch = main
+[submodule "robots/jorik"]
+	path = robots/jorik
+	url = git@github.com:JJdeVries/atilla-pub.git
+	branch = main
