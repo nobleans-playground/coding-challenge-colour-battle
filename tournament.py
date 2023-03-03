@@ -16,6 +16,8 @@ n_rounds = int(args.rounds)
 n_games = int(args.games)
 scores = np.zeros((n_bots, n_games))
 
+print(f"Running tournament of {n_games} games of {n_rounds} rounds each.")
+
 # Setup the world
 world = World()
 for bot in BotList:

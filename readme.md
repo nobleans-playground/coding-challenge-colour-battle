@@ -2,6 +2,18 @@
 
 ![](images/banner.png)
 
+## Current Standings
+_Last updated: 3 March 2023 09:00_
+```
+1  : Atilla the Attacker            Jorik de Vries       28 %
+2  : Picasso                        Daniel Pijnenborg    23 %
+3  : Rambo The Rando                Nobleo               20 %
+4  : Short Sighted Steve            Nobleo               18 %
+```
+_Note: These results are not a from a full tournament. Final results might differ._
+
+## Description
+
 The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
 
 [View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-battle/)
@@ -11,6 +23,7 @@ You will write your bot's logic in a Python class. In each iteration of the game
 Here you can see two example bots. Do you have what it takes to out-paint _Rambo the Rando?!_
 - [Rambo the Rando](https://github.com/nobleans-playground/coding-challenge-bot-template/blob/main/rambo_the_rando.py)
 - [Short Sighted Steve](https://github.com/nobleans-playground/coding-challenge-colour-battle/blob/master/robots/short_sighted_steve.py)
+
 
 ## Some Concepts
 
