@@ -10,3 +10,7 @@
 	path = robots/jorik
 	url = git@github.com:JJdeVries/atilla-pub.git
 	branch = main
+[submodule "robots/jp"]
+	path = robots/jp
+	url = git@github.com:PlumPot55/JP_Paint_robot.git
+	branch = main
