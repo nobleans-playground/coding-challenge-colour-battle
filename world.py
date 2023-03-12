@@ -1,6 +1,7 @@
 import numpy as np
 import math
 import random
+import time
 from robots.bot_control import Move
 
 class World:
@@ -64,7 +65,7 @@ class World:
         if floor_colour == 0: return bot_colour
         return [floor_colour, 0, bot_colour][(bot_colour - floor_colour) % 3]
 
-    def step(self) -> bool:
+    def step(self, measure_time=False) -> bool:
         # Update game info
         self.game_info.current_round += 1
 
@@ -73,7 +74,9 @@ class World:
 
         # Determine next moves
         for bot in self.bots:
+            start_time = time.time() if measure_time else 0
             bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
+            if measure_time: bot.measured_time = time.time() - start_time
             if not bot.next_move in self.MOVE_TO_VECTOR:
                 raise Exception(f"Bot \"{bot.get_name()}\" attempted an invalid move \"{bot.next_move}\"")
 

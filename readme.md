@@ -113,6 +113,7 @@ You can develop and test your bot on your local machine, and should be doable on
 You can run the game in two modes by running one of the following two files:
 - `main.py`: Regular game with GUI.
 - `tournament.py`: Run a test tournament without a GUI. After it's done it will print out the rankings. Use `--games 100` or `--rounds 100` to alter the length of the tournament. Defaults to one game of 1000 rounds.
+- `time_trails.py`: Measures how long your bot takes to decide it's next move.
 
 ## Rules
 - Targetting a specific other bot is not allowed, although you may target the tactics of a general class of bot. You may target a specific bot ID, beause it's impossible to know which bot it belongs to. This mostly means you may not reverse engineer someone's bot and then create a bot that effectively neutralizes it because you know it's next move. 
