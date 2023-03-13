@@ -65,4 +65,4 @@ print("============================================================")
 print("The Final Scores")
 print("============================================================")
 for i, score in enumerate(packed_scores):    
-    print(f"{i+1:<3}: {score[0]:<30} {score[1]:<20} {round(100*score[2]/n_games/max_score_per_game)} %")
+    print(f"{i+1:<3}: {score[0]:<30} {score[1]:<20} {round(100*score[2]/n_games/max_score_per_game, 3):>7} %")

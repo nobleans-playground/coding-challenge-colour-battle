@@ -3,13 +3,14 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 10 March 2023 15:00_
+_Last updated: 13 March 2023 09:00_
 ```
-1  : Atilla the Attacker            Jorik de Vries       24 %
-2  : Picasso                        Daniel Pijnenborg    17 %
-3  : Short Sighted Steve            Nobleo               15 %
-4  : The Clueless African           JP Potgieter         15 %
-5  : Rambo The Rando                Nobleo               14 %
+1  : Bot Ross                       Hein                      21 %
+2  : Atilla the Attacker            Jorik de Vries            18 %
+3  : Picasso                        Daniel                    16 %
+4  : The Clueless African           JP Potgieter              13 %
+5  : Short Sighted Steve            Nobleo                    12 %
+6  : Rambo The Rando                Nobleo                    10 %
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
