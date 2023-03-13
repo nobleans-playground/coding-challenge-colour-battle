@@ -14,3 +14,7 @@
 	path = robots/jp
 	url = git@github.com:PlumPot55/JP_Paint_robot.git
 	branch = main
+[submodule "robots/hein-bot-ross"]
+	path = robots/hein-bot-ross
+	url = git@github.com:heinwessels/nobleo-coding-challenge-bot-ross.git
+	branch = main
