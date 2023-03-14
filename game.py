@@ -3,6 +3,7 @@ import math
 import numpy as np
 from enum import Enum
 import pygame
+import time
 
 from robots.bot_list import BotList
 
@@ -78,10 +79,13 @@ class Game:
         if cmd == "id":
             self.draw_bot_ids = not self.draw_bot_ids
 
-    def __init__(self, window):
+    def __init__(self, window, rounds=1000, auto_restart=None):
         self.state = self.State.PAUSE
         self.FPS = self.FPS_NORMAL
-        self.number_of_rounds = 1000
+        self.number_of_rounds = rounds
+
+        self.auto_restart = auto_restart
+        self.auto_restart_start = None
 
         self.world = World()
         self.add_bots()
@@ -133,8 +137,16 @@ class Game:
                 # Game is done.
                 self.done = True
                 self.state = self.State.PAUSE
+                if self.auto_restart is not None:
+                    self.auto_restart_start = time.time()
             if self.state == self.State.STEP:
                 self.state = self.State.PAUSE
+        else:
+            if self.auto_restart_start is not None:
+                if time.time() - self.auto_restart_start > self.auto_restart:
+                    self.setup()
+                    self.state = self.State.PLAY
+                    self.auto_restart_start = None
         
         self.render()
         pygame.display.update()
@@ -199,7 +211,7 @@ class Game:
         scores = self.world.get_score()
         max_score = self.world.grid.size
         sorted_scores = [  [   # Calculate all scores and sort the list
-                        bot.get_name(), 
+                        f"{bot.get_name()} [{bot.get_contributor()}]", 
                         round(100*scores[bot.id]/max_score),
                         bot.id,
                     ]
