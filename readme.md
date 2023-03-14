@@ -92,7 +92,7 @@ Your bot will live as a git submodule inside the main challenge repository. This
 
 **Steps to submit a bot:**
 1. Create a GitHub account if you don't have one already. Using a personal account is fine.
-2. Ask Tim Clephas to add you to the [Nobleans Playground](https://github.com/nobleans-playground) Organisation. **Note:** This is optional. You will only need this if you want to use a repository template for Step 3.
+2. Ask me (Hein) to add you to the [Nobleans Playground](https://github.com/nobleans-playground) Organisation. **Note:** This is optional. You will only need this if you want to use a repository template for Step 3.
 3. Create a personal repository where your bot will live. It needs to look like this [template](https://github.com/nobleans-playground/coding-challenge-bot-template). If you joined the Playground Organisation you can select the `template-bot` as template for your new repository.
 4.  Give your bot a custom name, add your name as contributor, and some custom logic (can be done later as well).
 5. Notify a organizer (Hein Wessels) to add your bot to the challenge as a submodule in the main repository. **Note:** Your bot doesn't have to be complete to be added. It simply needs to run and return a valid move. You can update/change/refactor your bot at any point during the challenge.
