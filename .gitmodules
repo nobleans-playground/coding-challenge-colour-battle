@@ -23,3 +23,6 @@
 [submodule "robots/hakan"]
 	path = robots/hakan
 	url = git@github.com:hyamanyar/aslan.git
+[submodule "robots/rick"]
+	path = robots/rick
+	url = git@github.com:Edarrin/Nobleo_color_challange.git
