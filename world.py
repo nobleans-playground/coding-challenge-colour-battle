@@ -20,10 +20,11 @@ class World:
         Move.STAY: np.array([0, 0],  dtype=np.int16)
     }
 
-    def __init__(self):
+    def __init__(self, harsh=False):
         self.bot_types = []
         self.bots = []
         self.colour_map = {0: 0} # 0 is always zero (white)
+        self.harsh = harsh
 
     def add_bot(self, bot):
         # Remember the type, so we can recreate it every round
@@ -75,10 +76,21 @@ class World:
         # Determine next moves
         for bot in self.bots:
             start_time = time.time() if measure_time else 0
-            bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
+            try:
+                bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
+            except Exception as e:
+                if self.harsh:
+                    # Then we don't care if your bot crashes. We will ignore it.
+                    bot.next_move = Move.STAY
+                else:
+                    raise e
             if measure_time: bot.measured_time = time.time() - start_time
             if not bot.next_move in self.MOVE_TO_VECTOR:
-                raise Exception(f"Bot \"{bot.get_name()}\" attempted an invalid move \"{bot.next_move}\"")
+                if self.harsh:
+                    # We don't care if you returned the wrong thing.
+                    bot.next_move = Move.STAY
+                else:
+                    raise Exception(f"Bot \"{bot.get_name()}\" attempted an invalid move \"{bot.next_move}\"")
 
         # Execute moves after all bots determined what they want to do
         for bot in self.bots:

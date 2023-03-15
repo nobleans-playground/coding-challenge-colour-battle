@@ -19,7 +19,7 @@ scores = np.zeros((n_bots, n_games))
 print(f"Running tournament of {n_games} games of {n_rounds} rounds each.")
 
 # Setup the world
-world = World()
+world = World(harsh=True)
 for bot in BotList:
     world.add_bot(bot)
 world.setup(1) # Dry run to get max score

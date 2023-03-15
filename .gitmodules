@@ -17,15 +17,20 @@
 [submodule "robots/mahmoud"]
 	path = robots/mahmoud
 	url = git@github.com:Mahmoud1922/nobleo-coding-challenge-bot.git
+	branch = main
 [submodule "robots/lewie"]
 	path = robots/lewie
 	url = https://github.com/lewie-donckers/ch34tsRus
+	branch = main
 [submodule "robots/hakan"]
 	path = robots/hakan
 	url = git@github.com:hyamanyar/aslan.git
+	branch = main
 [submodule "robots/rick"]
 	path = robots/rick
 	url = git@github.com:Edarrin/Nobleo_color_challange.git
+	branch = main
 [submodule "robots/ishu"]
 	path = robots/ishu
 	url = git@github.com:ishugoel-nobleo/colour-bot.git
+	branch = main
