@@ -79,8 +79,8 @@ class Game:
         if cmd == "id":
             self.draw_bot_ids = not self.draw_bot_ids
 
-    def __init__(self, window, rounds=1000, auto_restart=None):
-        self.state = self.State.PAUSE
+    def __init__(self, window, rounds=1000, auto_start=False, auto_restart=None):
+        self.state = self.State.PLAY if auto_start else self.State.PAUSE 
         self.FPS = self.FPS_NORMAL
         self.number_of_rounds = rounds
 
