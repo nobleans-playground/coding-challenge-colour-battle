@@ -6,7 +6,6 @@ RamboTheRando = importlib.import_module("robots.coding-challenge-bot-template.ra
 DanielsRobot = importlib.import_module("robots.DanielsRobot.Daniels_Bot").Daniels_Bot
 JorikAtilla = importlib.import_module("robots.jorik.atilla").AtillaTheAttacker
 TheCluelessAfrican = importlib.import_module("robots.jp.The_no_clue_African").TheCluelessAfrican
-HeinBotRoss = importlib.import_module("robots.hein-bot-ross.bot_ross").BotRoss
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -16,5 +15,4 @@ BotList = [
     DanielsRobot,
     JorikAtilla,
     TheCluelessAfrican,
-    HeinBotRoss
 ]
