@@ -20,3 +20,6 @@
 [submodule "robots/lewie"]
 	path = robots/lewie
 	url = https://github.com/lewie-donckers/ch34tsRus
+[submodule "robots/hakan"]
+	path = robots/hakan
+	url = git@github.com:hyamanyar/aslan.git

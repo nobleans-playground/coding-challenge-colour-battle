@@ -7,7 +7,8 @@ DanielsRobot = importlib.import_module("robots.DanielsRobot.Daniels_Bot").Daniel
 JorikAtilla = importlib.import_module("robots.jorik.atilla").AtillaTheAttacker
 TheCluelessAfrican = importlib.import_module("robots.jp.The_no_clue_African").TheCluelessAfrican
 BigAssBot = importlib.import_module("robots.mahmoud.big_ass_bot").BigAssBot
-LewieBot = importlib.import_module("robots.lewie.rambo_the_rando").RamboTheRando
+ch34tsRus = importlib.import_module("robots.lewie.ch34tsRus").ch34tsRus
+Aslan = importlib.import_module("robots.hakan.aslan").Aslan
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -18,5 +19,6 @@ BotList = [
     JorikAtilla,
     TheCluelessAfrican,
     BigAssBot,
-    LewieBot,
+    ch34tsRus,
+    Aslan,
 ]
