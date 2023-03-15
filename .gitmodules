@@ -26,3 +26,6 @@
 [submodule "robots/rick"]
 	path = robots/rick
 	url = git@github.com:Edarrin/Nobleo_color_challange.git
+[submodule "robots/ishu"]
+	path = robots/ishu
+	url = git@github.com:ishugoel-nobleo/colour-bot.git
