@@ -17,3 +17,6 @@
 [submodule "robots/mahmoud"]
 	path = robots/mahmoud
 	url = git@github.com:Mahmoud1922/nobleo-coding-challenge-bot.git
+[submodule "robots/lewie"]
+	path = robots/lewie
+	url = https://github.com/lewie-donckers/ch34tsRus
