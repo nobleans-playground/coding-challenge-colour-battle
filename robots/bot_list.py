@@ -10,6 +10,7 @@ BigAssBot = importlib.import_module("robots.mahmoud.big_ass_bot").BigAssBot
 ch34tsRus = importlib.import_module("robots.lewie.ch34tsRus").ch34tsRus
 Aslan = importlib.import_module("robots.hakan.aslan").Aslan
 RickbrandtVanRijn = importlib.import_module("robots.rick.RickbrandtVanRijn").RickbrandtVanRijn
+Vector = importlib.import_module("robots.ishu.rambo_the_rando").Vector
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -23,4 +24,5 @@ BotList = [
     ch34tsRus,
     Aslan,
     RickbrandtVanRijn,
+    Vector,
 ]
