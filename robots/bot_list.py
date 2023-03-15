@@ -22,5 +22,5 @@ BotList = [
     BigAssBot,
     ch34tsRus,
     Aslan,
-    # RickbrandtVanRijn,
+    RickbrandtVanRijn,
 ]
