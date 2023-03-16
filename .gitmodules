@@ -34,3 +34,6 @@
 	path = robots/ishu
 	url = git@github.com:ishugoel-nobleo/colour-bot.git
 	branch = main
+[submodule "robots/rayman"]
+	path = robots/rayman
+	url = git@github.com:Rayman/coding-challenge-bot.git
