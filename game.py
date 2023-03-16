@@ -191,11 +191,11 @@ class Game:
 
         # Draw the bots
         for bot in self.world.bots:
-            position = ((bot.position[0]+0.5) * w, 
+            position = (int((bot.position[0]+0.5) * w), 
                         # Invert the y, so that (0,0) is actually lower left
-                        self.window.get_height() - ((bot.position[1]+0.5) * w))
-            pygame.draw.circle(self.window, self.colour_from_id(bot.id), position, w * 0.4, math.ceil(w/3))
-            pygame.draw.circle(self.window, (0, 0, 0), position, w * 0.4, math.ceil(w/10))
+                        int(self.window.get_height() - ((bot.position[1]+0.5) * w)))
+            pygame.draw.circle(self.window, self.colour_from_id(bot.id), position, math.ceil(w * 0.4), math.ceil(w/3))
+            pygame.draw.circle(self.window, (0, 0, 0), position, math.ceil(w * 0.4), math.ceil(w/10))
             
         # Draw the score board
         self.scoreboard.fill(self.GREY)
