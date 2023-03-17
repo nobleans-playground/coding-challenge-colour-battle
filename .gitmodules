@@ -40,3 +40,6 @@
 [submodule "robots/tim"]
 	path = robots/tim
 	url = git@github.com:138bit/id10plus_bot.git
+[submodule "robots/felipe"]
+	path = robots/felipe
+	url = https://git.33kbps.com.ar/fdiniello/ShortSpanDog.git
