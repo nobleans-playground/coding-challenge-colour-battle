@@ -12,6 +12,7 @@ Aslan = importlib.import_module("robots.hakan.aslan").Aslan
 RickbrandtVanRijn = importlib.import_module("robots.rick.RickbrandtVanRijn").RickbrandtVanRijn
 Vector = importlib.import_module("robots.ishu.vector").Vector
 Greedy = importlib.import_module("robots.rayman.greedy").Greedy
+id10plus_bot = importlib.import_module("robots.tim.id10+_bot").id10plus_bot
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -27,4 +28,5 @@ BotList = [
     RickbrandtVanRijn,
     Vector,
     Greedy,
+    id10plus_bot,
 ]

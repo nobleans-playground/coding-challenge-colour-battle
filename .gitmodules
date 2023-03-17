@@ -37,3 +37,6 @@
 [submodule "robots/rayman"]
 	path = robots/rayman
 	url = git@github.com:Rayman/coding-challenge-bot.git
+[submodule "robots/tim"]
+	path = robots/tim
+	url = git@github.com:138bit/id10plus_bot.git
