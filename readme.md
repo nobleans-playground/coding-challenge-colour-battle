@@ -3,25 +3,26 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 16 March 2023 14:00_
+_Last updated: 17 March 2023 15:00_
 ```
-1  : Atilla the Attacker            Jorik de Vries        12.885 %
-2  : Picasso                        Daniel                12.105 %
-3  : The Clueless African           JP Potgieter           8.944 %
-4  : Short Sighted Steve            Nobleo                 8.811 %
-5  : Greedy Gerard                  Rayman                 7.431 %
-6  : Rambo The Rando                Nobleo                 7.222 %
-7  : Aslan                          Hakan                  7.221 %
-8  : ch34tsRus                      Lewie                  7.162 %
-9  : Vector                         Ishu                   7.038 %
-10 : Big Ass Bot                    Mahmoud                6.872 %
-11 : RickbrandtVanRijn              Rick Voogt             0.116 %
+1  : Picasso                        Daniel                12.223 %
+2  : Atilla the Attacker            Jorik de Vries        10.901 %
+3  : The Clueless African           JP Potgieter           9.363 %
+4  : Short Sighted Steve            Nobleo                 8.254 %
+5  : Aslan                          Hakan                  7.832 %
+6  : Rambo The Rando                Nobleo                 7.554 %
+7  : ch34tsRus                      Lewie                  7.522 %
+8  : Vector                         Ishu                   7.406 %
+9  : Big Ass Bot                    Mahmoud                7.233 %
+10 : Greedy Gerard                  Rayman                 6.518 %
+11 : ID10+ BOT                      Nobleo                 0.172 %
+12 : RickbrandtVanRijn              Rick Voogt             0.107 %
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
 ## Description
 
-The goal is the fill as much as possible of the canvas with your bot's colour. You determine in which direction your bot should move. *Be weary of other bots who might want to paint over your hard work!*
+The goal is the fill as much as possible of the canvas with your bot's colour. The bot with the most tiles win! *Be weary of other bots who might want to paint over your hard work!* There will also be a secondary prize for the bot that claimed the most tiles using the least amount of _processing time_!
 
 [View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-battle/)
 
@@ -107,11 +108,17 @@ Your bot will live as a git submodule inside the main challenge repository. This
 1. Clone _this_ repository using `git clone --recursive [URL]`. The `--recursive` is to pull in all submodule bots.
 2. If your bot's submodule has been added as a submodule then you can develop your bot in your folder. Remember to `add/commit/push` your changes once you're done so that the online simulation can be updated with your newest bot. (Will still need a manual refresh by an organiser)
 3. **If your bot has not been **added to the main repository you can temporarily add it to `robots/`, similar to `ShortSightedSteve`. Remember to add ot tp `bot_list.py` as well.
+4. Choose a workspace to code in. I would recommend Visual Studio Code (VSCode), which works well for Windows or Ubuntu.
 4. Run `main.py` to watch the current bots battle for the canvas with a nice GUI (if using VSCode press `F5` to run it in `debug` mode). Or run `tournament.py` to run it without a GUI and simply print out the end rankings.
 
 **Updating your local repository with the newest changes**
-Over the course of the challenge your local repository might be out-of-date with all the other bots. You will need to run `git submodule update --remote` to pull in all the newest bot changes. It might also be that some challenge-engine code was altered, which you will also have to `pull`.
-
+Over the course of the challenge your local repository might be out-of-date with all the other bots. To update the environent you can run the following two commands from the root folder.
+```bash
+# Pull the latest game-code
+git pull
+# Pull the latest code from all the bots
+git submodule update --remote
+```
 ## Running the bot on your machine
 You can develop and test your bot on your local machine, and should be doable on either Windows or Linux. All you need is the following Python packages on your machine, `pygame` and `numpy`.
 
