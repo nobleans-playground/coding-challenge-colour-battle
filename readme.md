@@ -145,7 +145,7 @@ You can develop and test your bot on your local machine, and should be doable on
 You can run the game in two modes by running one of the following two files:
 - `main.py`: Regular game with GUI.
 - `tournament.py`: Run a test tournament without a GUI. After it's done it will print out the rankings. Use `--games 100` or `--rounds 100` to alter the length of the tournament. Defaults to one game of 1000 rounds. Add `--graph` to output a nice graph showing the performance of all bots like [this](https://github.com/nobleans-playground/coding-challenge-colour-battle#Some-Statistics).
-- `time_trails.py`: Measures how long your bot takes to decide it's next move.
+- `time_trails.py`: Measures how long your bot takes to decide it's next move. For a quick description on how to optimize your bot for time have a look at the [Profiling Section](https://github.com/nobleans-playground/coding-challenge-colour-battle#Profiling-Your-Bot).
 
 ## Rules
 - Targetting a specific other bot is not allowed, although you may target the tactics of a general class of bot. You may target a specific bot ID, beause it's impossible to know which bot it belongs to. This mostly means you may not reverse engineer someone's bot and then create a bot that effectively neutralizes it because you know it's next move. 
@@ -156,6 +156,24 @@ You can run the game in two modes by running one of the following two files:
 - Please limit the processing time of your bot. Currently there's a hard limit of `20ms` _average_ time-per-move as measured on my laptop using `time_trails.py`. Please talk to me (Hein) if you think this is too short. You can also use a profiler to try and make your code faster.
 - Your bot must be your own creation. This rule is so that you may not blatantly copy someone's bot, change only a few lines, and then submit it as your own. *Some* code duplication is of course inevitable and thus allowed, because the logic might be similar between bots.
 
+
+## Profiling Your Bot
+
+One aspect of the challenge is to try and optimize your bot's processing time to become the most efficient. One way to do it in Python using `cPython` by following these steps:
+```bash
+# Run the tournament through a profiler
+# It might be worth it to remove most other 
+# processing-intensive bots from the tournament,
+# which could give clearer results on your bot
+python3 -m cProfile -o output.pstats tournament.py
+
+# The generated file can displayed in multiple ways. One way is turn 
+# this into an image, like this:
+python3 -m gprof2dot -f pstats output.pstats | dot -Tpng -o output.png
+```
+This will create an image containing a flowchart with blocks representing functions. The redder the block, the more time is taken to process that function. You can use this as direction on where to optimize your code. For example, it showed that in a bot I created the `np.clip` function was taking the majority of time, which I would never have suspected. I then changed my code to not require the clip function, which significantly sped up mu code.
+
+**Important:** Premature optimization is the [root of all evil](https://m.xkcd.com/1691/). First ensure your bot is functioning properly before attempting optimiziation.
 
 ## Some Statistics
 Below is a histogram created on March 18 showing the distrubution of scores achieved by different bots (ignoring `id10plus` and `RickbrandtVanRijn`).
