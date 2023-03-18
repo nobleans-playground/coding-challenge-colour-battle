@@ -144,7 +144,7 @@ You can develop and test your bot on your local machine, and should be doable on
 
 You can run the game in two modes by running one of the following two files:
 - `main.py`: Regular game with GUI.
-- `tournament.py`: Run a test tournament without a GUI. After it's done it will print out the rankings. Use `--games 100` or `--rounds 100` to alter the length of the tournament. Defaults to one game of 1000 rounds.
+- `tournament.py`: Run a test tournament without a GUI. After it's done it will print out the rankings. Use `--games 100` or `--rounds 100` to alter the length of the tournament. Defaults to one game of 1000 rounds. Add `--graph` to output a nice graph showing the performance of all bots like [this](https://github.com/nobleans-playground/coding-challenge-colour-battle#Some-Statistics).
 - `time_trails.py`: Measures how long your bot takes to decide it's next move.
 
 ## Rules
@@ -155,3 +155,9 @@ You can run the game in two modes by running one of the following two files:
 - Your bot may not intentionally crash. During the tournament any crashes of your bot will be treated as `Move.STAY` command.
 - Please limit the processing time of your bot. Currently there's a hard limit of `20ms` _average_ time-per-move as measured on my laptop using `time_trails.py`. Please talk to me (Hein) if you think this is too short. You can also use a profiler to try and make your code faster.
 - Your bot must be your own creation. This rule is so that you may not blatantly copy someone's bot, change only a few lines, and then submit it as your own. *Some* code duplication is of course inevitable and thus allowed, because the logic might be similar between bots.
+
+
+## Some Statistics
+Below is a histogram created on March 18 showing the distrubution of scores achieved by different bots (ignoring `id10plus` and `RickbrandtVanRijn`).
+
+![](images/histogram.png)
