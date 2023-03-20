@@ -43,3 +43,6 @@
 [submodule "robots/felipe"]
 	path = robots/felipe
 	url = https://git.33kbps.com.ar/fdiniello/ShortSpanDog.git
+[submodule "robots/hein-leo"]
+	path = robots/hein-leo
+	url = git@github.com:heinwessels/coding-challenge-learoundo-da-vinci.git
