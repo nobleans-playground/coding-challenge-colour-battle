@@ -9,8 +9,8 @@ class World:
     class GameInfo:
         def __init__(self, length, size):
             self.number_of_rounds = length
-            self.current_round = 0
             self.grid_size = size
+            self.current_round = 0
 
     MOVE_TO_VECTOR = {
         Move.UP: np.array([0, 1],  dtype=np.int16),
@@ -32,6 +32,7 @@ class World:
         self.bot_types += [bot]
 
     def setup(self, number_of_rounds):
+        self.current_round = 0
 
         # Create the bots
         self.bots = [bot_type() for bot_type in self.bot_types]
