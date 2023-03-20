@@ -75,7 +75,9 @@ class World:
         enemies = [{"id": bot.id, "position": bot.position} for bot in self.bots]
 
         # Determine next moves
-        for bot in self.bots:
+        # Do this in a random sequence every time. This will give better
+        # time measurements, as found by Jorik.
+        for bot in random.sample(self.bots, len(self.bots)):
             start_time = time.time() if measure_time else 0
             try:
                 bot.next_move = bot.determine_next_move(self.grid, enemies, self.game_info)
