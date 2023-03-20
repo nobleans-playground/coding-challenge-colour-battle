@@ -3,40 +3,42 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 17 March 2023 15:00_
+_Last updated: 20 March 2023 16:00_
 **Score:**
 ```
 Rank Name                          Contributor         Avg [us]       Score  
-1    Picasso                       Daniel              98.866         10.921  %
-2    Atilla the Attacker           Jorik de Vries      320.186        10.536  %
-3    The Clueless African          JP Potgieter        12.441         8.581   %
-4    Short Sighted Steve           Nobleo              22.421         8.31    %
-5    Aslan                         Hakan               2.792          6.883   %
-6    Greedy Gerard                 Rayman              17.754         6.647   %
-7    ShortSpanDog                  Felipe              7.26           6.583   %
-8    Rambo The Rando               Nobleo              4.736          6.581   %
-9    Vector                        Ishu                2.804          6.548   %
-10   ch34tsRus                     Lewie               3.314          6.394   %
-11   Big Ass Bot                   Mahmoud             20.983         6.323   %
-12   ID10+ BOT                     Nobleo              4447.812       0.165   %
-13   RickbrandtVanRijn             Rick Voogt          0.313          0.1     %
+1    Picasso                       Daniel              146.935        10.567  %
+2    Atilla the Attacker           Jorik de Vries      412.812        8.731   %
+3    The Clueless African          JP Potgieter        33.719         7.866   %
+4    Short Sighted Steve           Nobleo              28.873         6.893   %
+5    Aslan                         Hakan               7.123          6.668   %
+6    ch34tsRus                     Lewie               6.964          6.436   %
+7    Vector                        Ishu                8.436          6.392   %
+8    ShortSpanDog                  Felipe              7.231          6.383   %
+9    Rambo The Rando               Nobleo              7.174          6.334   %
+10   Big Ass Bot                   Mahmoud             29.483         6.016   %
+11   LeaRoundo Da Vinci            Hein                334.847        5.981   %
+12   Greedy Gerard                 Rayman              25.953         5.842   %
+13   ID10+ BOT                     Nobleo              6541.08        0.149   %
+14   RickbrandtVanRijn             Rick Voogt          0.82           0.091   %
 ```
 **Efficiency:**
 ```
 Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
-1    Aslan                         Hakan               2.792          6.883       2.466       
-2    Vector                        Ishu                2.804          6.548       2.336       
-3    ch34tsRus                     Lewie               3.314          6.394       1.929       
-4    Rambo The Rando               Nobleo              4.736          6.581       1.39        
-5    ShortSpanDog                  Felipe              7.26           6.583       0.907       
-6    The Clueless African          JP Potgieter        12.441         8.581       0.69        
-7    Greedy Gerard                 Rayman              17.754         6.647       0.374       
-8    Short Sighted Steve           Nobleo              22.421         8.31        0.371       
-9    RickbrandtVanRijn             Rick Voogt          0.313          0.1         0.321       
-10   Big Ass Bot                   Mahmoud             20.983         6.323       0.301       
-11   Picasso                       Daniel              98.866         10.921      0.11        
-12   Atilla the Attacker           Jorik de Vries      320.186        10.536      0.033       
-13   ID10+ BOT                     Nobleo              4447.812       0.165       0.0  
+1    Aslan                         Hakan               7.123          6.668       0.936       
+2    ch34tsRus                     Lewie               6.964          6.436       0.924       
+3    Rambo The Rando               Nobleo              7.174          6.334       0.883       
+4    ShortSpanDog                  Felipe              7.231          6.383       0.883       
+5    Vector                        Ishu                8.436          6.392       0.758       
+6    Short Sighted Steve           Nobleo              28.873         6.893       0.239       
+7    The Clueless African          JP Potgieter        33.719         7.866       0.233       
+8    Greedy Gerard                 Rayman              25.953         5.842       0.225       
+9    Big Ass Bot                   Mahmoud             29.483         6.016       0.204       
+10   RickbrandtVanRijn             Rick Voogt          0.82           0.091       0.111       
+11   Picasso                       Daniel              146.935        10.567      0.072       
+12   Atilla the Attacker           Jorik de Vries      412.812        8.731       0.021       
+13   LeaRoundo Da Vinci            Hein                334.847        5.981       0.018       
+14   ID10+ BOT                     Nobleo              6541.08        0.149       0.0   
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
