@@ -15,6 +15,7 @@ Greedy = importlib.import_module("robots.rayman.greedy").Greedy
 id10plus_bot = importlib.import_module("robots.tim.id10+_bot").id10plus_bot
 ShortSpanDog = importlib.import_module("robots.felipe.short_span_dog").ShortSpanDog
 LearoundoDaVinci = importlib.import_module("robots.hein-leo.learoundo_da_vinci").LearoundoDaVinci
+RapidRothko = importlib.import_module("robots.jorik.rapid").RapidRothko
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -33,4 +34,5 @@ BotList = [
     id10plus_bot,
     ShortSpanDog,
     LearoundoDaVinci,
+    RapidRothko,
 ]
