@@ -33,10 +33,10 @@ BotList = [
     RickbrandtVanRijn,
     Vector,
     # Greedy,
+    Abra, # Replaces Greedy so that visible colours remain the same
     id10plus_bot,
     ShortSpanDog,
     LearoundoDaVinci,
     RapidRothko,
-    Abra,
     Kadabra,
 ]
