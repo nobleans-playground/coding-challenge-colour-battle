@@ -16,6 +16,8 @@ id10plus_bot = importlib.import_module("robots.tim.id10+_bot").id10plus_bot
 ShortSpanDog = importlib.import_module("robots.felipe.short_span_dog").ShortSpanDog
 LearoundoDaVinci = importlib.import_module("robots.hein-leo.learoundo_da_vinci").LearoundoDaVinci
 RapidRothko = importlib.import_module("robots.jorik.rapid").RapidRothko
+Abra = importlib.import_module("robots.rayman.smarter_min").Abra
+Kadabra = importlib.import_module("robots.rayman.smarter_min").Kadabra
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -30,9 +32,11 @@ BotList = [
     Aslan,
     RickbrandtVanRijn,
     Vector,
-    Greedy,
+    # Greedy,
     id10plus_bot,
     ShortSpanDog,
     LearoundoDaVinci,
     RapidRothko,
+    Abra,
+    Kadabra,
 ]
