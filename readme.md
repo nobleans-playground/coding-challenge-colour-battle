@@ -3,46 +3,46 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 22 March 2023 13:00_
+_Last updated: 24 March 2023 09:00_
 **Score:**
 ```
 Rank Name                          Contributor         Avg [us]       Score  
-1    Kadabra                       Rayman              186.532        8.262   %
-2    Picasso                       Daniel              146.39         8.087   %
-3    Atilla the Attacker           Jorik de Vries      412.897        7.868   %
-4    The Clueless African          JP Potgieter        17.306         7.835   %
-5    Abra                          Rayman              41.153         7.163   %
-6    Short Sighted Steve           Nobleo              28.622         6.335   %
-7    Rambo The Rando               Nobleo              6.322          5.156   %
-8    Aslan                         Hakan               6.653          5.133   %
-9    LeaRoundo Da Vinci            Hein                272.414        5.113   %
-10   ch34tsRus                     Lewie               6.295          5.056   %
-11   Vector                        Ishu                6.508          4.94    %
-12   ShortSpanDog                  Felipe              6.263          4.937   %
-13   Big Ass Bot                   Mahmoud             28.481         4.715   %
-14   RapidRothko                   Jorik de Vries      3.9            4.441   %
-15   ID10+ BOT                     Nobleo              6966.1         0.114   %
-16   RickbrandtVanRijn             Rick Voogt          0.866          0.085   %
+1    Hein Won't Let Me Cheat       Lewie               305.029        10.04   %
+2    Atilla the Attacker           Jorik de Vries      303.675        8.814   %
+3    Kadabra                       Rayman              183.643        7.833   %
+4    Picasso                       Daniel              144.78         7.743   %
+5    The Clueless African          JP Potgieter        17.802         6.952   %
+6    Abra                          Rayman              42.948         6.815   %
+7    Short Sighted Steve           Nobleo              29.315         6.259   %
+8    ShortSpanDog                  Felipe              7.447          4.819   %
+9    Vector                        Ishu                7.719          4.804   %
+10   LeaRoundo Da Vinci            Hein                256.082        4.801   %
+11   Rambo The Rando               Nobleo              7.777          4.615   %
+12   Aslan                         Hakan               7.522          4.604   %
+13   Big Ass Bot                   Mahmoud             30.257         4.49    %
+14   RapidRothko                   Jorik de Vries      4.022          4.213   %
+15   ID10+ BOT                     Nobleo              7427.804       0.134   %
+16   RickbrandtVanRijn             Rick Voogt          1.05           0.082   %
 ```
 **Efficiency:**
 ```
 Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
-1    RapidRothko                   Jorik de Vries      3.9            4.441       1.139       
-2    Rambo The Rando               Nobleo              6.322          5.156       0.816       
-3    ch34tsRus                     Lewie               6.295          5.056       0.803       
-4    ShortSpanDog                  Felipe              6.263          4.937       0.788       
-5    Aslan                         Hakan               6.653          5.133       0.771       
-6    Vector                        Ishu                6.508          4.94        0.759       
-7    The Clueless African          JP Potgieter        17.306         7.835       0.453       
-8    Short Sighted Steve           Nobleo              28.622         6.335       0.221       
-9    Abra                          Rayman              41.153         7.163       0.174       
-10   Big Ass Bot                   Mahmoud             28.481         4.715       0.166       
-11   RickbrandtVanRijn             Rick Voogt          0.866          0.085       0.098       
-12   Picasso                       Daniel              146.39         8.087       0.055       
-13   Kadabra                       Rayman              186.532        8.262       0.044       
-14   Atilla the Attacker           Jorik de Vries      412.897        7.868       0.019       
-15   LeaRoundo Da Vinci            Hein                272.414        5.113       0.019       
-16   ID10+ BOT                     Nobleo              6966.1         0.114       0.0 
+1    RapidRothko                   Jorik de Vries      4.022          4.213       1.048       
+2    ShortSpanDog                  Felipe              7.447          4.819       0.647       
+3    Vector                        Ishu                7.719          4.804       0.622       
+4    Aslan                         Hakan               7.522          4.604       0.612       
+5    Rambo The Rando               Nobleo              7.777          4.615       0.593       
+6    The Clueless African          JP Potgieter        17.802         6.952       0.39        
+7    Short Sighted Steve           Nobleo              29.315         6.259       0.213       
+8    Abra                          Rayman              42.948         6.815       0.159       
+9    Big Ass Bot                   Mahmoud             30.257         4.49        0.148       
+10   RickbrandtVanRijn             Rick Voogt          1.05           0.082       0.078       
+11   Picasso                       Daniel              144.78         7.743       0.053       
+12   Kadabra                       Rayman              183.643        7.833       0.043       
+13   Hein Won't Let Me Cheat       Lewie               305.029        10.04       0.033       
+14   Atilla the Attacker           Jorik de Vries      303.675        8.814       0.029       
+15   LeaRoundo Da Vinci            Hein                256.082        4.801       0.019       
+16   ID10+ BOT                     Nobleo              7427.804       0.134       0.0  
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
