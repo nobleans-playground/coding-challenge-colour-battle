@@ -74,6 +74,9 @@ class World:
         # Create enemies list
         enemies = [{"id": bot.id, "position": bot.position} for bot in self.bots]
 
+        if self.harsh:
+            self.grid.flags.writeable = False
+
         # Determine next moves
         # Do this in a random sequence every time. This will give better
         # time measurements, as found by Jorik.
@@ -94,6 +97,8 @@ class World:
                     bot.next_move = Move.STAY
                 else:
                     raise Exception(f"Bot \"{bot.get_name()}\" attempted an invalid move \"{bot.next_move}\"")
+
+        self.grid.flags.writeable = True
 
         # Execute moves after all bots determined what they want to do
         for bot in self.bots:
