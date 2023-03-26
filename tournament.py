@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from robots.bot_list import BotList
 from world import World
-import time, math
-import threading
+import time, math, copy, sys
+import threading, multiprocessing
 import concurrent.futures
 
 parser = argparse.ArgumentParser(description='Nobleo Colour Run')
@@ -12,11 +12,13 @@ parser.add_argument('--rounds', type=int, default=2000,
                     help='number of rounds in a single game')
 parser.add_argument('--games', type=int, default=200,
                     help='number of games to play')
-parser.add_argument('--threads', type=int, default=10,
+parser.add_argument('--threads', type=int, default=8,
                     help='number of games to run simultaniously')
 parser.add_argument('--graph', action='store_true',
                     help='Shows a histogram of the bots performance')
 args = parser.parse_args()
+
+mgr = multiprocessing.Manager()
 
 n_bots = len(BotList)
 n_rounds = int(args.rounds)
@@ -24,7 +26,6 @@ n_games = int(args.games)
 total_entries = n_rounds * n_games
 
 # This is all the metrics that we will collect from all the threads
-results_lock = threading.Lock()
 scores = np.zeros((n_bots, n_games))
 time_min = [0.0] * n_bots
 time_avg = [0.0] * n_bots
@@ -34,8 +35,7 @@ time_max = [0.0] * n_bots
 # of all the games currently in progress in
 # other threads. It will automatically terminate
 # once the last game is done
-progress_lock = threading.Lock()
-progress = { }
+progress = mgr.dict()
 def progress_printer():
     games_left = {game: True for game in range(n_games)}
     busy = False
@@ -50,9 +50,7 @@ def progress_printer():
     while busy or len(games_left) != 0:
         print("\033[H\033[J", end="") # Clear console
 
-        progress_lock.acquire()
         progress_ = progress.copy()
-        progress_lock.release()
 
         if len(progress_) == 0:
             busy = False
@@ -102,66 +100,69 @@ progress_printer_thread.start()
 # This is the function that will execute a single game
 # and capture some information about it. It will terminate
 # when the game is done
-def game_runner(game):
+class Context:
+    def __init__(self, game):
+        self.game = game
+        self.n_rounds = n_rounds
+        self.bot_list = BotList
+        self.progress = progress
+        self.scores = [0] * len(BotList)
+        self.time_min = [0.0] * len(BotList)
+        self.time_avg = [0.0] * len(BotList)
+        self.time_max = [0.0] * len(BotList)
+def game_runner(context : Context) -> Context:
     # We run the game in harsh mode, meaning we don't simply ignore
     # it when your bot crashes or returns an invalid move. Your bot
     # will just sit in the same place. Also includes some checks to 
     # ensure the bots aren't cheating.
     _world = World(harsh=True)
-    for bot in BotList:
+    for bot in context.bot_list:
         _world.add_bot(bot)
-    _world.setup(n_rounds)
+    _world.setup(context.n_rounds)
     
-    progress_lock.acquire()
-    progress[game] = 0
-    progress_lock.release()
-
-    _scores = [0] * n_bots
-    _time_min = [0.0] * n_bots
-    _time_avg = [0.0] * n_bots
-    _time_max = [0.0] * n_bots
+    context.progress[context.game] = 0
     
     # Run the game
     while not _world.step(measure_time=True):
         for index, bot in enumerate(_world.bots):
-            _time_min[index] = min(bot.measured_time, _time_min[index])
-            _time_avg[index] += bot.measured_time / n_rounds
-            _time_max[index] = max(bot.measured_time, _time_max[index])
+            context.time_min[index] = min(bot.measured_time, context.time_min[index])
+            context.time_avg[index] += bot.measured_time / context.n_rounds
+            context.time_max[index] = max(bot.measured_time, context.time_max[index])
         
         # Update the value used by the progress printer
-        progress_lock.acquire()
-        progress[game] = _world.current_round / n_rounds
-        progress_lock.release()
+        context.progress[context.game] = _world.current_round / context.n_rounds
 
     # The game is completed. Clean up
     # and capture some information to return
-    progress_lock.acquire()
-    progress.pop(game, None)
-    progress_lock.release()
+    context.progress.pop(context.game, None)
 
     max_score = _world.grid.size
     for bot_id, bot_score in _world.get_score().items():
         # Here we calculate the percentage
-        _scores[_world.colour_map[bot_id] - 1] = bot_score / max_score * 100
+        context.scores[_world.colour_map[bot_id] - 1] = bot_score / max_score * 100
 
-    # Update all the results
-    results_lock.acquire()
-    for index in range(n_bots):
-        scores[index, game] = _scores[index]
-        time_min[index] = min(_time_min[index], time_min[index])
-        time_avg[index] += _time_avg[index] / n_games
-        time_max[index] = max(_time_max[index], time_max[index])
-    results_lock.release()
+    # Return all results for this game
+    return context
 
 # Here we will spawn the threads that will run all the games concurrently
 # It's quite cool that Python has something like this built in
-with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
-    future_game = {executor.submit(game_runner, game): game for game in range(n_games)}
-    for future in concurrent.futures.as_completed(future_game):
-        pass
+with concurrent.futures.ProcessPoolExecutor(max_workers=args.threads) as executor:
+    future_games = {
+        executor.submit(game_runner, Context(game)): game 
+        for game in range(n_games)
+    }
+    for future in concurrent.futures.as_completed(future_games):
+        context = future.result()
+        for index in range(n_bots):
+            scores[index, context.game] = context.scores[index]
+            time_min[index] = min(context.time_min[index], time_min[index])
+            time_avg[index] += context.time_avg[index] / n_games
+            time_max[index] = max(context.time_max[index], time_max[index])
 
 # Wait for progress printer thread to finish
 progress_printer_thread.join()
+
+print(f"Ran tournament of {n_games} games of {n_rounds} rounds each.")
 
 # We are done with the tournament. Now display some info
 # Create a dummy world to get bot names and such
