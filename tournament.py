@@ -7,11 +7,57 @@ import time, math, copy, sys
 import threading, multiprocessing
 import concurrent.futures
 
-# We need to place everything inside this if, otherwise
-# the multiprocessing.Manager() fails on Windows.
-if __name__ == '__main__':    
+# This is the function that will execute a single game
+# and capture some information about it. It will terminate
+# when the game is done.
+# Note: This has to be in global scope
+class Context:
+    def __init__(self, game):
+        self.game = game
+        self.n_rounds = n_rounds
+        self.bot_list = BotList
+        self.progress = progress
+        self.scores = [0] * len(BotList)
+        self.time_min = [0.0] * len(BotList)
+        self.time_avg = [0.0] * len(BotList)
+        self.time_max = [0.0] * len(BotList)
+def game_runner(context : Context) -> Context:
+    # We run the game in harsh mode, meaning we don't simply ignore
+    # it when your bot crashes or returns an invalid move. Your bot
+    # will just sit in the same place. Also includes some checks to 
+    # ensure the bots aren't cheating.
+    _world = World(harsh=True)
+    for bot in context.bot_list:
+        _world.add_bot(bot)
+    _world.setup(context.n_rounds)
+    
+    context.progress[context.game] = 0
+    
+    # Run the game
+    while not _world.step(measure_time=True):
+        for index, bot in enumerate(_world.bots):
+            context.time_min[index] = min(bot.measured_time, context.time_min[index])
+            context.time_avg[index] += bot.measured_time / context.n_rounds
+            context.time_max[index] = max(bot.measured_time, context.time_max[index])
+        
+        # Update the value used by the progress printer
+        context.progress[context.game] = _world.current_round / context.n_rounds
 
-    parser = argparse.ArgumentParser(description='Nobleo Colour Battle')
+    # The game is completed. Clean up
+    # and capture some information to return
+    context.progress.pop(context.game, None)
+
+    max_score = _world.grid.size
+    for bot_id, bot_score in _world.get_score().items():
+        # Here we calculate the percentage
+        context.scores[_world.colour_map[bot_id] - 1] = bot_score / max_score * 100
+
+    # Return all results for this game
+    return context
+
+# We need this if here otherwise the multiprocessing.Manager() goes hay-wire
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Nobleo Colour Run')
     parser.add_argument('--rounds', type=int, default=2000,
                         help='number of rounds in a single game')
     parser.add_argument('--games', type=int, default=200,
@@ -100,53 +146,6 @@ if __name__ == '__main__':
         print(f"Tournament finished in {round(time.time() - time_started)} seconds")
     progress_printer_thread = threading.Thread(target=progress_printer, daemon=True)
     progress_printer_thread.start()
-
-    # This is the function that will execute a single game
-    # and capture some information about it. It will terminate
-    # when the game is done
-    class Context:
-        def __init__(self, game):
-            self.game = game
-            self.n_rounds = n_rounds
-            self.bot_list = BotList
-            self.progress = progress
-            self.scores = [0] * len(BotList)
-            self.time_min = [0.0] * len(BotList)
-            self.time_avg = [0.0] * len(BotList)
-            self.time_max = [0.0] * len(BotList)
-    def game_runner(context : Context) -> Context:
-        # We run the game in harsh mode, meaning we don't simply ignore
-        # it when your bot crashes or returns an invalid move. Your bot
-        # will just sit in the same place. Also includes some checks to 
-        # ensure the bots aren't cheating.
-        _world = World(harsh=True)
-        for bot in context.bot_list:
-            _world.add_bot(bot)
-        _world.setup(context.n_rounds)
-        
-        context.progress[context.game] = 0
-        
-        # Run the game
-        while not _world.step(measure_time=True):
-            for index, bot in enumerate(_world.bots):
-                context.time_min[index] = min(bot.measured_time, context.time_min[index])
-                context.time_avg[index] += bot.measured_time / context.n_rounds
-                context.time_max[index] = max(bot.measured_time, context.time_max[index])
-            
-            # Update the value used by the progress printer
-            context.progress[context.game] = _world.current_round / context.n_rounds
-
-        # The game is completed. Clean up
-        # and capture some information to return
-        context.progress.pop(context.game, None)
-
-        max_score = _world.grid.size
-        for bot_id, bot_score in _world.get_score().items():
-            # Here we calculate the percentage
-            context.scores[_world.colour_map[bot_id] - 1] = bot_score / max_score * 100
-
-        # Return all results for this game
-        return context
 
     # Here we will spawn the threads that will run all the games concurrently
     # It's quite cool that Python has something like this built in
