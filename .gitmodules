@@ -53,3 +53,4 @@
 [submodule "robots/furbot"]
 	path = robots/furbot
 	url = https://github.com/MCFurry/furbot.git
+	branch = main

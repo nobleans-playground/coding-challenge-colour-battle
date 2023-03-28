@@ -23,7 +23,7 @@ Furbot = importlib.import_module("robots.furbot.furbot").FurBot
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
 BotList = [
-    RamboTheRando,
+    Furbot,
     ShortSightedSteve,
     DanielsRobot,
     JorikAtilla,
@@ -40,5 +40,7 @@ BotList = [
     LearoundoDaVinci,
     RapidRothko,
     Kadabra,
-    Furbot,
+
+    # These should always be last
+    RamboTheRando,
 ]
