@@ -50,3 +50,6 @@
 	path = robots/hein-leo
 	url = git@github.com:heinwessels/coding-challenge-learoundo-da-vinci.git
 	branch = main
+[submodule "robots/furbot"]
+	path = robots/furbot
+	url = https://github.com/MCFurry/furbot.git

@@ -1,4 +1,4 @@
-import importlib  
+import importlib
 
 from robots.short_sighted_steve import ShortSightedSteve
 
@@ -18,6 +18,7 @@ LearoundoDaVinci = importlib.import_module("robots.hein-leo.learoundo_da_vinci")
 RapidRothko = importlib.import_module("robots.jorik.rapid").RapidRothko
 Abra = importlib.import_module("robots.rayman.smarter_min").Abra
 Kadabra = importlib.import_module("robots.rayman.smarter_min").Kadabra
+Furbot = importlib.import_module("robots.furbot.furbot").FurBot
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -39,4 +40,5 @@ BotList = [
     LearoundoDaVinci,
     RapidRothko,
     Kadabra,
+    Furbot,
 ]
