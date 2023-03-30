@@ -3,46 +3,48 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 24 March 2023 09:00_
+_Last updated: 30 March 2023 08:00_
 **Score:**
 ```
 Rank Name                          Contributor         Avg [us]       Score  
-1    Hein Won't Let Me Cheat       Lewie               305.029        10.04   %
-2    Atilla the Attacker           Jorik de Vries      303.675        8.814   %
-3    Kadabra                       Rayman              183.643        7.833   %
-4    Picasso                       Daniel              144.78         7.743   %
-5    The Clueless African          JP Potgieter        17.802         6.952   %
-6    Abra                          Rayman              42.948         6.815   %
-7    Short Sighted Steve           Nobleo              29.315         6.259   %
-8    ShortSpanDog                  Felipe              7.447          4.819   %
-9    Vector                        Ishu                7.719          4.804   %
-10   LeaRoundo Da Vinci            Hein                256.082        4.801   %
-11   Rambo The Rando               Nobleo              7.777          4.615   %
-12   Aslan                         Hakan               7.522          4.604   %
-13   Big Ass Bot                   Mahmoud             30.257         4.49    %
-14   RapidRothko                   Jorik de Vries      4.022          4.213   %
-15   ID10+ BOT                     Nobleo              7427.804       0.134   %
-16   RickbrandtVanRijn             Rick Voogt          1.05           0.082   %
+1    Atilla the Attacker           Jorik de Vries      957.734        9.288   %
+2    Hein Won't Let Me Cheat       Lewie               864.06         9.136   %
+3    Kadabra                       Rayman              614.877        7.472   %
+4    Picasso                       Daniel              559.421        7.326   %
+5    Abra                          Rayman              238.387        6.16    %
+6    The Clueless African          JP Potgieter        49.529         6.092   %
+7    Short Sighted Steve           Nobleo              82.556         5.88    %
+8    FurBot                        Ferdinand Schumacher63.882         5.721   %
+9    LeaRoundo Da Vinci            Hein                615.983        4.559   %
+10   ShortSpanDog                  Felipe              18.51          4.396   %
+11   Vector                        Ishu                18.993         4.36    %
+12   Rambo The Rando               Nobleo              18.96          4.337   %
+13   Aslan                         Hakan               18.301         4.252   %
+14   Big Ass Bot                   Mahmoud             75.085         4.141   %
+15   RapidRothko                   Jorik de Vries      11.334         3.725   %
+16   ID10+ BOT                     Nobleo              23120.945      0.135   %
+17   RickbrandtVanRijn             Rick Voogt          2.556          0.079   %
 ```
 **Efficiency:**
 ```
 Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
-1    RapidRothko                   Jorik de Vries      4.022          4.213       1.048       
-2    ShortSpanDog                  Felipe              7.447          4.819       0.647       
-3    Vector                        Ishu                7.719          4.804       0.622       
-4    Aslan                         Hakan               7.522          4.604       0.612       
-5    Rambo The Rando               Nobleo              7.777          4.615       0.593       
-6    The Clueless African          JP Potgieter        17.802         6.952       0.39        
-7    Short Sighted Steve           Nobleo              29.315         6.259       0.213       
-8    Abra                          Rayman              42.948         6.815       0.159       
-9    Big Ass Bot                   Mahmoud             30.257         4.49        0.148       
-10   RickbrandtVanRijn             Rick Voogt          1.05           0.082       0.078       
-11   Picasso                       Daniel              144.78         7.743       0.053       
-12   Kadabra                       Rayman              183.643        7.833       0.043       
-13   Hein Won't Let Me Cheat       Lewie               305.029        10.04       0.033       
-14   Atilla the Attacker           Jorik de Vries      303.675        8.814       0.029       
-15   LeaRoundo Da Vinci            Hein                256.082        4.801       0.019       
-16   ID10+ BOT                     Nobleo              7427.804       0.134       0.0  
+1    RapidRothko                   Jorik de Vries      11.334         3.725       0.329       
+2    ShortSpanDog                  Felipe              18.51          4.396       0.237       
+3    Aslan                         Hakan               18.301         4.252       0.232       
+4    Vector                        Ishu                18.993         4.36        0.23        
+5    Rambo The Rando               Nobleo              18.96          4.337       0.229       
+6    The Clueless African          JP Potgieter        49.529         6.092       0.123       
+7    FurBot                        Ferdinand Schumacher63.882         5.721       0.09        
+8    Short Sighted Steve           Nobleo              82.556         5.88        0.071       
+9    Big Ass Bot                   Mahmoud             75.085         4.141       0.055       
+10   RickbrandtVanRijn             Rick Voogt          2.556          0.079       0.031       
+11   Abra                          Rayman              238.387        6.16        0.026       
+12   Picasso                       Daniel              559.421        7.326       0.013       
+13   Kadabra                       Rayman              614.877        7.472       0.012       
+14   Hein Won't Let Me Cheat       Lewie               864.06         9.136       0.011       
+15   Atilla the Attacker           Jorik de Vries      957.734        9.288       0.01        
+16   LeaRoundo Da Vinci            Hein                615.983        4.559       0.007       
+17   ID10+ BOT                     Nobleo              23120.945      0.135       0.0
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
@@ -165,6 +167,8 @@ You can run the game in two modes by running one of the following two files:
 
 
 ## Profiling Your Bot
+
+Note: The following steps don't work anymore since multi-threading was introduced in `tournament.py`.
 
 One aspect of the challenge is to try and optimize your bot's processing time to become the most efficient. One way to do it in Python using `cPython` by following these steps:
 ```bash
