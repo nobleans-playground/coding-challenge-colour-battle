@@ -54,3 +54,7 @@
 	path = robots/furbot
 	url = https://github.com/MCFurry/furbot.git
 	branch = main
+[submodule "robots/bram"]
+	path = robots/bram
+	url = git@github.com:Vidicon/LeonardoDaVidi.git
+	branch = main

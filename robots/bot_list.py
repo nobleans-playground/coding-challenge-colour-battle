@@ -19,12 +19,13 @@ RapidRothko = importlib.import_module("robots.jorik.rapid").RapidRothko
 Abra = importlib.import_module("robots.rayman.smarter_min").Abra
 Kadabra = importlib.import_module("robots.rayman.smarter_min").Kadabra
 Furbot = importlib.import_module("robots.furbot.furbot").FurBot
+LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").LeonardoDaVidi
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
 BotList = [
     Furbot,
-    ShortSightedSteve,
+    LeonardoDaVidi,
     DanielsRobot,
     JorikAtilla,
     TheCluelessAfrican,
@@ -43,4 +44,5 @@ BotList = [
 
     # These should always be last
     RamboTheRando,
+    ShortSightedSteve,
 ]
