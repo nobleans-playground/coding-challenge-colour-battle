@@ -26,7 +26,6 @@ LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").Leonard
 # to maintain the same colours as much as possible
 BotList = [
     FurryBot,
-    Schumi,
     LeonardoDaVidi,
     DanielsRobot,
     JorikAtilla,
@@ -43,6 +42,7 @@ BotList = [
     LearoundoDaVinci,
     RapidRothko,
     Kadabra,
+    Schumi,
 
     # These should always be last
     RamboTheRando,
