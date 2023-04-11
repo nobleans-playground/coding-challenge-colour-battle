@@ -58,3 +58,6 @@
 	path = robots/bram
 	url = git@github.com:Vidicon/LeonardoDaVidi.git
 	branch = main
+[submodule "robots/rokus"]
+	path = robots/rokus
+	url = git@github.com:rokusottervanger/rokus-nobleobot.git
