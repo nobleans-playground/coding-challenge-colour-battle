@@ -22,10 +22,6 @@
 	path = robots/lewie
 	url = https://github.com/lewie-donckers/ch34tsRus
 	branch = main
-[submodule "robots/hakan"]
-	path = robots/hakan
-	url = git@github.com:hyamanyar/aslan.git
-	branch = main
 [submodule "robots/rick"]
 	path = robots/rick
 	url = git@github.com:Edarrin/Nobleo_color_challange.git
@@ -61,3 +57,4 @@
 [submodule "robots/rokus"]
 	path = robots/rokus
 	url = git@github.com:rokusottervanger/rokus-nobleobot.git
+	branch = main

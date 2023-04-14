@@ -8,7 +8,6 @@ JorikAtilla = importlib.import_module("robots.jorik.atilla").AtillaTheAttacker
 TheCluelessAfrican = importlib.import_module("robots.jp.The_no_clue_African").TheCluelessAfrican
 BigAssBot = importlib.import_module("robots.mahmoud.big_ass_bot").BigAssBot
 ch34tsRus = importlib.import_module("robots.lewie.ch34tsRus").ch34tsRus
-Aslan = importlib.import_module("robots.hakan.aslan").Aslan
 RickbrandtVanRijn = importlib.import_module("robots.rick.RickbrandtVanRijn").RickbrandtVanRijn
 Vector = importlib.import_module("robots.ishu.vector").Vector
 Greedy = importlib.import_module("robots.rayman.greedy").Greedy
@@ -33,7 +32,7 @@ BotList = [
     TheCluelessAfrican,
     BigAssBot,
     ch34tsRus,
-    Aslan,
+    RamboTheRando,  # Aslan was here. Add placeholder to maintain colours.
     RickbrandtVanRijn,
     Vector,
     # Greedy,
@@ -47,6 +46,5 @@ BotList = [
     Rokusho,
 
     # These should always be last
-    RamboTheRando,
     ShortSightedSteve,
 ]
