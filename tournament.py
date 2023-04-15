@@ -3,9 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from robots.bot_list import BotList
 from world import World
-import time, math, copy, sys
+import os, time, math, copy, sys
 import threading, multiprocessing
 import concurrent.futures
+from datetime import datetime
 
 # This is the function that will execute a single game
 # and capture some information about it. It will terminate
@@ -66,6 +67,8 @@ if __name__ == '__main__':
                         help='number of games to run simultaniously')
     parser.add_argument('--graph', action='store_true',
                         help='Shows a histogram of the bots performance')
+    parser.add_argument('--dump', action='store_true',
+                        help='Dumps the results of the tournament in a csv')
     args = parser.parse_args()
 
     mgr = multiprocessing.Manager()
@@ -218,3 +221,11 @@ if __name__ == '__main__':
         plt.ylabel("Quantity")
         plt.xlabel("Score [%]")
         plt.show()
+
+    if args.dump:
+        now = datetime.now()
+        filename = f'{now.strftime("dump_%Y%m%d_%H%M")}.csv'
+        header = ','.join([bot.get_name() for bot in world.bots])
+        if not os.path.exists('dumps'):
+            os.makedirs('dumps')
+        np.savetxt(f"dumps/{filename}", scores.transpose(), fmt='%10.5f', delimiter=',', header=header)
