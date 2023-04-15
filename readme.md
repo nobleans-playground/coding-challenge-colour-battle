@@ -3,53 +3,55 @@
 ![](images/banner.png)
 
 ## Current Standings
-_Last updated: 8 April 2023 20:00_
+_Last updated: 15 April 2023 20:00_
 
 **Score:**
 ```
 Rank Name                          Contributor         Avg [us]       Score  
-1    Kadabra                       Rayman              844.221        7.334   %
-2    Hein Won't Let Me Cheat       Lewie               725.044        7.223   %
-3    Atilla the Attacker           Jorik de Vries      740.915        7.061   %
-4    Abra                          Rayman              693.788        6.485   %
-5    Picasso                       Daniel              426.169        6.467   %
-6    Schumi                        Ferdinand Schumacher481.532        6.147   %
-7    The Clueless African          JP Potgieter        36.869         5.398   %
-8    FurryBot                      Ferdinand Schumacher127.973        5.276   %
-9    LeonardoDaVidi                Bram Fenijn         71926.411      5.094   %
-10   Short Sighted Steve           Nobleo              63.355         4.95    %
-11   LeaRoundo Da Vinci            Hein                436.153        4.091   %
-12   Aslan                         Hakan               13.384         3.708   %
-13   ShortSpanDog                  Felipe              13.364         3.703   %
-14   Rambo The Rando               Nobleo              13.586         3.691   %
-15   Vector                        Ishu                13.529         3.664   %
-16   Big Ass Bot                   Mahmoud             54.934         3.519   %
-17   RapidRothko                   Jorik de Vries      8.123          3.412   %
-18   ID10+ BOT                     Nobleo              19172.212      0.136   %
-19   RickbrandtVanRijn             Rick Voogt          1.996          0.073   %
+1    Atilla the Attacker           Jorik de Vries      866.505        7.117   %
+2    Kadabra                       Rayman              995.025        6.989   %
+3    Hein Won't Let Me Cheat       Lewie               865.788        6.886   %
+4    LeonardoDaVidi                Bram Fenijn         478.932        6.82    %
+5    Abra                          Rayman              821.765        5.878   %
+6    Picasso                       Daniel              554.152        5.781   %
+7    Schumi                        Ferdinand Schumacher551.592        5.384   %
+8    FurryBot                      Ferdinand Schumacher145.046        5.275   %
+9    The Clueless African          JP Potgieter        42.556         4.945   %
+10   Short Sighted Steve           Nobleo              72.819         4.523   %
+11   The Swift Sweeper             Jerrel              9.84           3.78    %
+12   LeaRoundo Da Vinci            Hein                462.75         3.77    %
+13   Vector                        Ishu                16.234         3.703   %
+14   Rambo The Rando               Nobleo              16.3           3.582   %
+15   Big Ass Bot                   Mahmoud             62.335         3.521   %
+16   Rokusho                       Rokus               15.927         3.498   %
+17   RapidRothko                   Jorik de Vries      9.877          3.314   %
+18   ShortSpanDog                  Felipe              155.333        2.388   %
+19   ID10+ BOT                     Nobleo              23878.624      0.136   %
+20   RickbrandtVanRijn             Rick Voogt          2.284          0.072   %
 ```
 **Efficiency:**
 ```
 Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
-1    RapidRothko                   Jorik de Vries      8.123          3.412       0.42        
-2    ShortSpanDog                  Felipe              13.364         3.703       0.277       
-3    Aslan                         Hakan               13.384         3.708       0.277       
-4    Rambo The Rando               Nobleo              13.586         3.691       0.272       
-5    Vector                        Ishu                13.529         3.664       0.271       
-6    The Clueless African          JP Potgieter        36.869         5.398       0.146       
-7    Short Sighted Steve           Nobleo              63.355         4.95        0.078       
-8    Big Ass Bot                   Mahmoud             54.934         3.519       0.064       
-9    FurryBot                      Ferdinand Schumacher127.973        5.276       0.041       
-10   RickbrandtVanRijn             Rick Voogt          1.996          0.073       0.037       
-11   Picasso                       Daniel              426.169        6.467       0.015       
-12   Schumi                        Ferdinand Schumacher481.532        6.147       0.013       
-13   Hein Won't Let Me Cheat       Lewie               725.044        7.223       0.01        
-14   Atilla the Attacker           Jorik de Vries      740.915        7.061       0.01        
-15   LeaRoundo Da Vinci            Hein                436.153        4.091       0.009       
-16   Abra                          Rayman              693.788        6.485       0.009       
-17   Kadabra                       Rayman              844.221        7.334       0.009       
-18   LeonardoDaVidi                Bram Fenijn         71926.411      5.094       0.0         
-19   ID10+ BOT                     Nobleo              19172.212      0.136       0.0 
+1    The Swift Sweeper             Jerrel              9.84           3.78        0.384       
+2    RapidRothko                   Jorik de Vries      9.877          3.314       0.336       
+3    Vector                        Ishu                16.234         3.703       0.228       
+4    Rambo The Rando               Nobleo              16.3           3.582       0.22        
+5    Rokusho                       Rokus               15.927         3.498       0.22        
+6    The Clueless African          JP Potgieter        42.556         4.945       0.116       
+7    Short Sighted Steve           Nobleo              72.819         4.523       0.062       
+8    Big Ass Bot                   Mahmoud             62.335         3.521       0.056       
+9    FurryBot                      Ferdinand Schumacher145.046        5.275       0.036       
+10   RickbrandtVanRijn             Rick Voogt          2.284          0.072       0.031       
+11   ShortSpanDog                  Felipe              155.333        2.388       0.015       
+12   LeonardoDaVidi                Bram Fenijn         478.932        6.82        0.014       
+13   Picasso                       Daniel              554.152        5.781       0.01        
+14   Schumi                        Ferdinand Schumacher551.592        5.384       0.01        
+15   Atilla the Attacker           Jorik de Vries      866.505        7.117       0.008       
+16   LeaRoundo Da Vinci            Hein                462.75         3.77        0.008       
+17   Hein Won't Let Me Cheat       Lewie               865.788        6.886       0.008       
+18   Abra                          Rayman              821.765        5.878       0.007       
+19   Kadabra                       Rayman              995.025        6.989       0.007       
+20   ID10+ BOT                     Nobleo              23878.624      0.136       0.0   
 ```
 _Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
