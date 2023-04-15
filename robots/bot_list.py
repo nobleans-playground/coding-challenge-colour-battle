@@ -21,6 +21,7 @@ FurryBot = importlib.import_module("robots.furbot.furbot").FurryBot
 Schumi = importlib.import_module("robots.furbot.furbot").Schumi
 LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").LeonardoDaVidi
 Rokusho = importlib.import_module("robots.rokus.rokusho").RamboTheRando
+SwiftSweeper = importlib.import_module("robots.jerrel.swift_sweeper").SwiftSweeper
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -32,7 +33,7 @@ BotList = [
     TheCluelessAfrican,
     BigAssBot,
     ch34tsRus,
-    RamboTheRando,  # Aslan was here. Add placeholder to maintain colours.
+    SwiftSweeper,
     RickbrandtVanRijn,
     Vector,
     # Greedy,
@@ -46,5 +47,6 @@ BotList = [
     Rokusho,
 
     # These should always be last
+    RamboTheRando,
     ShortSightedSteve,
 ]

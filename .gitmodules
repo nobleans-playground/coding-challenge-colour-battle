@@ -58,3 +58,7 @@
 	path = robots/rokus
 	url = git@github.com:rokusottervanger/rokus-nobleobot.git
 	branch = main
+[submodule "robots/jerrel"]
+	path = robots/jerrel
+	url = git@github.com:Nobleaantje/Swift-Sweeper.git
+	branch = main
