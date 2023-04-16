@@ -22,7 +22,7 @@ Schumi = importlib.import_module("robots.furbot.furbot").Schumi
 LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").LeonardoDaVidi
 Rokusho = importlib.import_module("robots.rokus.rokusho").RamboTheRando
 SwiftSweeper = importlib.import_module("robots.jerrel.swift_sweeper").SwiftSweeper
-AHall = importlib.import_module("robots.bram.a_hall").AHall
+HarryPlotter = importlib.import_module("robots.bram.harry_plotter").HarryPlotter
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -46,7 +46,7 @@ BotList = [
     Kadabra,
     Schumi,
     Rokusho,
-    AHall,
+    HarryPlotter,
 
     # These should always be last
     RamboTheRando,
