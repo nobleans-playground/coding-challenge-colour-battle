@@ -62,3 +62,7 @@
 	path = robots/jerrel
 	url = git@github.com:Nobleaantje/Swift-Sweeper.git
 	branch = main
+[submodule "robots/jerrel2"]
+	path = robots/jerrel2
+	url = git@github.com:Nobleaantje/ChasingBots.git
+	branch = main

@@ -23,6 +23,7 @@ LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").Leonard
 Rokusho = importlib.import_module("robots.rokus.rokusho").Rokusho
 SwiftSweeper = importlib.import_module("robots.jerrel.swift_sweeper").SwiftSweeper
 HarryPlotter = importlib.import_module("robots.bram.harry_plotter").HarryPlotter
+ChasingBots = importlib.import_module("robots.jerrel2.chasingbots").ChasingBots
 
 # Add new bots to the bottom of this list
 # to maintain the same colours as much as possible
@@ -47,6 +48,7 @@ BotList = [
     Schumi,
     Rokusho,
     HarryPlotter,
+    ChasingBots,
 
     # These should always be last
     RamboTheRando,
