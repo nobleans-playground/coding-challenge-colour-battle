@@ -20,7 +20,7 @@ Kadabra = importlib.import_module("robots.rayman.search_min").Kadabra
 FurryBot = importlib.import_module("robots.furbot.furbot").FurryBot
 Schumi = importlib.import_module("robots.furbot.furbot").Schumi
 LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").LeonardoDaVidi
-Rokusho = importlib.import_module("robots.rokus.rokusho").RamboTheRando
+Rokusho = importlib.import_module("robots.rokus.rokusho").Rokusho
 SwiftSweeper = importlib.import_module("robots.jerrel.swift_sweeper").SwiftSweeper
 HarryPlotter = importlib.import_module("robots.bram.harry_plotter").HarryPlotter
 
