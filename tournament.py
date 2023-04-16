@@ -22,6 +22,9 @@ class Context:
         self.time_min = [0.0] * len(BotList)
         self.time_avg = [0.0] * len(BotList)
         self.time_max = [0.0] * len(BotList)
+        self.should_dump = args.dump
+        self.dump_semaphore = dump_semaphore
+        self.dump_filename = dump_filename
 def game_runner(context : Context) -> Context:
     # We run the game in harsh mode, meaning we don't simply ignore
     # it when your bot crashes or returns an invalid move. Your bot
@@ -53,6 +56,13 @@ def game_runner(context : Context) -> Context:
         # Here we calculate the percentage
         context.scores[_world.colour_map[bot_id] - 1] = bot_score / max_score * 100
 
+    if context.should_dump:
+        # Dump the results into the csv file
+        with context.dump_semaphore:            
+            data = np.reshape(np.array(context.scores), (-1, len(BotList)))
+            with open(context.dump_filename,'a') as f:
+                np.savetxt(f, data, fmt='%3.5f', delimiter=',')
+
     # Return all results for this game
     return context
 
@@ -83,6 +93,16 @@ if __name__ == '__main__':
     time_min = [0.0] * n_bots
     time_avg = [0.0] * n_bots
     time_max = [0.0] * n_bots
+
+    # Setup writing to the csv dump
+    dump_semaphore = mgr.Semaphore()
+    now = datetime.now()
+    dump_filename = f'dumps/{now.strftime("dump_%Y%m%d_%H%M%S")}.csv'
+    if args.dump:
+        if not os.path.exists('dumps'):
+            os.makedirs('dumps')
+        header = np.reshape(np.array([bot_type().get_name() for bot_type in BotList]), (-1, len(BotList)))
+        np.savetxt(dump_filename, header, fmt='%s', delimiter=',')
 
     # This is a thread that will print the progress
     # of all the games currently in progress in
@@ -221,11 +241,3 @@ if __name__ == '__main__':
         plt.ylabel("Quantity")
         plt.xlabel("Score [%]")
         plt.show()
-
-    if args.dump:
-        now = datetime.now()
-        filename = f'{now.strftime("dump_%Y%m%d_%H%M")}.csv'
-        header = ','.join([bot.get_name() for bot in world.bots])
-        if not os.path.exists('dumps'):
-            os.makedirs('dumps')
-        np.savetxt(f"dumps/{filename}", scores.transpose(), fmt='%10.5f', delimiter=',', header=header)
