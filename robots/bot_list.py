@@ -50,7 +50,7 @@ BotList = [
     HarryPlotter,
     ChasingBots,
 
-    # These should always be last
-    RamboTheRando,
-    ShortSightedSteve,
+    # Template bots are not part of the finals
+    # RamboTheRando,
+    # ShortSightedSteve,
 ]
