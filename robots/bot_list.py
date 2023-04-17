@@ -15,8 +15,9 @@ id10plus_bot = importlib.import_module("robots.tim.id10+_bot").id10plus_bot
 ShortSpanDog = importlib.import_module("robots.felipe.short_span_dog").ShortSpanDog
 LearoundoDaVinci = importlib.import_module("robots.hein-leo.learoundo_da_vinci").LearoundoDaVinci
 RapidRothko = importlib.import_module("robots.jorik.rapid").RapidRothko
-Abra = importlib.import_module("robots.rayman.search_min").Abra
+# Abra = importlib.import_module("robots.rayman.search_min").Abra
 Kadabra = importlib.import_module("robots.rayman.search_min").Kadabra
+Alakazam = importlib.import_module("robots.rayman.search_min").Alakazam
 FurryBot = importlib.import_module("robots.furbot.furbot").FurryBot
 Schumi = importlib.import_module("robots.furbot.furbot").Schumi
 LeonardoDaVidi = importlib.import_module("robots.bram.leonardo_da_vidi").LeonardoDaVidi
@@ -38,8 +39,7 @@ BotList = [
     SwiftSweeper,
     RickbrandtVanRijn,
     Vector,
-    # Greedy,
-    Abra, # Replaces Greedy so that visible colours remain the same
+    Alakazam, # A bot has evolved!
     id10plus_bot,
     ShortSpanDog,
     LearoundoDaVinci,
