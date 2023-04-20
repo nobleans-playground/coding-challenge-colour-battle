@@ -2,68 +2,71 @@
 
 ![](images/banner.png)
 
-## Current Standings
-_Last updated: 16 April 2023 18:00_
+## Final Standings
 
 **Score:**
 ```
-Rank Name                          Contributor         Avg [us]       Score  
-1    Atilla the Attacker           Jorik de Vries      870.222        5.8     %
-2    Hein Won't Let Me Cheat       Lewie               2318.747       5.743   %
-3    LeonardoDaVidi                Bram Fenijn         804.323        5.615   %
-4    Kadabra                       Rayman              1030.411       5.474   %
-5    ChasingBots                   Jerrel              312.196        5.079   %
-6    Abra                          Rayman              857.092        5.076   %
-7    Picasso                       Daniel              560.929        5.013   %
-8    Schumi                        Ferdinand Schumacher547.382        4.904   %
-9    Rokusho                       Rokus               272.969        4.726   %
-10   FurryBot                      Ferdinand Schumacher144.291        4.636   %
-11   The Clueless African          JP Potgieter        42.75          4.265   %
-12   Short Sighted Steve           Nobleo              72.658         4.084   %
-13   Harry Plotter ( 0 )           Bram Fenijn         1795.889       3.823   %
-14   LeaRoundo Da Vinci            Hein                415.198        3.691   %
-15   The Swift Sweeper             Jerrel              10.088         3.445   %
-16   Rambo The Rando               Nobleo              17.006         3.371   %
-17   Vector                        Ishu                16.877         3.358   %
-18   Big Ass Bot                   Mahmoud             63.365         3.325   %
-19   RapidRothko                   Jorik de Vries      9.692          3.085   %
-20   ShortSpanDog                  Felipe              168.336        2.279   %
-21   ID10+ BOT                     Nobleo              26601.84       0.114   %
-22   RickbrandtVanRijn             Rick Voogt          2.721          0.064   %
+Rank Name                          Contributor         Avg [us]       Score
+1    Alakazam                      Rayman              2433.561       6.185   %
+2    Hein Won't Let Me Cheat       Lewie               830.144        6.019   %
+3    Atilla the Attacker           Jorik de Vries      461.188        5.915   %
+4    Kadabra                       Rayman              572.762        5.803   %
+5    LeonardoDaVidi                Bram Fenijn         249.556        5.801   %
+6    ChasingBots                   Jerrel              141.236        5.506   %
+7    Picasso                       Daniel              202.45         5.197   %
+8    Rokusho                       Rokus               400.448        5.166   %
+9    Schumi                        Ferdinand Schumacher310.913        5.116   %
+10   Vector                        Ishu                10.954         5.098   %
+11   FurryBot                      Ferdinand Schumacher76.346         4.951   %
+12   The Clueless African          JP Potgieter        21.233         4.531   %
+13   Harry Plotter ( 0 )           Bram Fenijn         769.523        4.122   %
+14   LeaRoundo Da Vinci            Hein                240.143        3.908   %
+15   The Swift Sweeper             Jerrel              5.273          3.813   %
+16   Big Ass Bot                   Mahmoud             33.003         3.627   %
+17   RapidRothko                   Jorik de Vries      4.963          3.343   %
+18   ShortSpanDog                  Felipe              72.709         2.495   %
+19   ID10+ BOT                     Nobleo              9541.598       0.139   %
+20   RickbrandtVanRijn             Rick Voogt          1.23           0.072   %
 ```
 **Efficiency:**
 ```
-Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
-1    The Swift Sweeper             Jerrel              10.088         3.445       0.341       
-2    RapidRothko                   Jorik de Vries      9.692          3.085       0.318       
-3    Vector                        Ishu                16.877         3.358       0.199       
-4    Rambo The Rando               Nobleo              17.006         3.371       0.198       
-5    The Clueless African          JP Potgieter        42.75          4.265       0.1         
-6    Short Sighted Steve           Nobleo              72.658         4.084       0.056       
-7    Big Ass Bot                   Mahmoud             63.365         3.325       0.052       
-8    FurryBot                      Ferdinand Schumacher144.291        4.636       0.032       
-9    RickbrandtVanRijn             Rick Voogt          2.721          0.064       0.023       
-10   Rokusho                       Rokus               272.969        4.726       0.017       
-11   ChasingBots                   Jerrel              312.196        5.079       0.016       
-12   ShortSpanDog                  Felipe              168.336        2.279       0.014       
-13   Schumi                        Ferdinand Schumacher547.382        4.904       0.009       
-14   Picasso                       Daniel              560.929        5.013       0.009       
-15   LeaRoundo Da Vinci            Hein                415.198        3.691       0.009       
-16   LeonardoDaVidi                Bram Fenijn         804.323        5.615       0.007       
-17   Atilla the Attacker           Jorik de Vries      870.222        5.8         0.007       
-18   Abra                          Rayman              857.092        5.076       0.006       
-19   Kadabra                       Rayman              1030.411       5.474       0.005       
-20   Hein Won't Let Me Cheat       Lewie               2318.747       5.743       0.002       
-21   Harry Plotter ( 0 )           Bram Fenijn         1795.889       3.823       0.002       
-22   ID10+ BOT                     Nobleo              26601.84       0.114       0.0
+Rank Name                          Contributor         Avg [us]       Score [%]   Efficiency [%/us]
+1    The Swift Sweeper             Jerrel              5.273          3.813       0.723
+2    RapidRothko                   Jorik de Vries      4.963          3.343       0.674
+3    Vector                        Ishu                10.954         5.098       0.465
+4    The Clueless African          JP Potgieter        21.233         4.531       0.213
+5    Big Ass Bot                   Mahmoud             33.003         3.627       0.11
+6    FurryBot                      Ferdinand Schumacher76.346         4.951       0.065
+7    RickbrandtVanRijn             Rick Voogt          1.23           0.072       0.059
+8    ChasingBots                   Jerrel              141.236        5.506       0.039
+9    ShortSpanDog                  Felipe              72.709         2.495       0.034
+10   Picasso                       Daniel              202.45         5.197       0.026
+11   LeonardoDaVidi                Bram Fenijn         249.556        5.801       0.023
+12   Schumi                        Ferdinand Schumacher310.913        5.116       0.016
+13   LeaRoundo Da Vinci            Hein                240.143        3.908       0.016
+14   Rokusho                       Rokus               400.448        5.166       0.013
+15   Atilla the Attacker           Jorik de Vries      461.188        5.915       0.013
+16   Kadabra                       Rayman              572.762        5.803       0.01
+17   Hein Won't Let Me Cheat       Lewie               830.144        6.019       0.007
+18   Harry Plotter ( 0 )           Bram Fenijn         769.523        4.122       0.005
+19   Alakazam                      Rayman              2433.561       6.185       0.003
+20   ID10+ BOT                     Nobleo              9541.598       0.139       0.0
 ```
-_Note: These results are not a from a full tournament in the correct configuration. Final results might differ._
 
+**Bonus Prizes:**
+- Rokushu by Rokus Ottervanger: Most erratic bot with highest standard deviation in final score (σ = 2.119 %).
+- RickbrandtVanRijn by Rick Voogt: Most consistent bot with lowest standard deviation in final score (σ = 0.019 %).
+- Harry Plotter by Bram Fenijn: Friendliest Follower bot which allowed any other bot to become it's friend (until it was considered cheating).
+
+
+These standings were determined by running a tournament consisting of 50 000 games of 2000 rounds each, which took 21 hours to calculate.
+
+---
 ## Description
 
 The goal is the fill as much as possible of the canvas with your bot's colour. The bot with the most tiles win! *Be weary of other bots who might want to paint over your hard work!* There will also be a secondary prize for the bot that claimed the most tiles using the least amount of _processing time_!
 
-[View the already submitted bots battle online here!](https://nobleans-playground.github.io/coding-challenge-colour-battle/)
+[~~View the already submitted bots battle online here!~~](https://nobleans-playground.github.io/coding-challenge-colour-battle/) _Out of order: We are sorry for the inconvenience._
 
 You will write your bot's logic in a Python class. In each iteration of the game a specific function in your bot will be called (with relevant information as arguments), and your bot will need to decide in which direction to turn.
 
@@ -198,6 +201,6 @@ This will create an image containing a flowchart with blocks representing functi
 **Important:** Premature optimization is the [root of all evil](https://m.xkcd.com/1691/). First ensure your bot is functioning properly before attempting optimiziation.
 
 ## Some Statistics
-Below is a histogram created on March 18 showing the distrubution of scores achieved by different bots (ignoring `id10plus` and `RickbrandtVanRijn`).
+Below is a histogram showing the performance of the different bots over the final 50000 games. The straight vertical lines on the left are a broken bot and incomplete bot.
 
 ![](images/histogram.png)
